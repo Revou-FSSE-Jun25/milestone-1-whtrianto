@@ -27,6 +27,8 @@ Ini adalah proyek milestone pertama dari program RevoU - Front-End Web Developme
 
 1. Clone repositori ini:
 
+   
+
 ## 🎨 Styling - Milestone 2 Update
 
 Pada modul kedua, saya menambahkan file `style.css` untuk memperindah tampilan website. Berikut fitur-fitur CSS yang saya terapkan:
