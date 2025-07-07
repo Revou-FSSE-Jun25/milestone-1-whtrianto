@@ -1,10 +1,10 @@
 # Personal Website - Milestone 1
 
-## 📄 Overview
+## Overview
 
 Ini adalah proyek milestone pertama dari program RevoU - Front-End Web Development, di mana saya membuat website pribadi menggunakan HTML untuk struktur.
 
-## ✨ Fitur yang Diimplementasikan
+## Fitur yang Diimplementasikan
 
 - Struktur HTML semantik (section, header, footer, main).
 - Navigasi internal melalui anchor links.
@@ -12,28 +12,28 @@ Ini adalah proyek milestone pertama dari program RevoU - Front-End Web Developme
 - Formulir kontak dengan validasi sederhana (required).
 - HTML tersusun dengan rapi dan readable.
 
-## 🧰 Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - HTML5 (pure HTML tanpa CSS pada tahap ini)
 - GitHub Pages (untuk hosting)
 - Git (untuk version control)
 
-## 🌐 Live Preview
+## Live Preview
 
 > Website dihosting di GitHub Pages:  
 > [https://revou-fsse-jun25.github.io/milestone-1-whtrianto](https://revou-fsse-jun25.github.io/milestone-1-whtrianto)
 
-## 📁 Cara Mengakses Proyek
+## Cara Mengakses Proyek
 
 1. Clone repositori ini:
 
    
 
-## 🎨 Styling - Milestone 2 Update
+## Styling - Milestone 2 Update
 
 Pada modul kedua, saya menambahkan file `style.css` untuk memperindah tampilan website. Berikut fitur-fitur CSS yang saya terapkan:
 
-### ✅ Fitur Styling yang Diterapkan:
+### Fitur Styling yang Diterapkan:
 
 - Desain responsif menggunakan media query (`max-width: 768px`)
 - Tata letak asimetris dan dinamis menggunakan Flexbox
@@ -42,17 +42,17 @@ Pada modul kedua, saya menambahkan file `style.css` untuk memperindah tampilan w
 - Formulir kontak dengan input yang tertata dan mudah digunakan
 - Penambahan padding, border-radius, dan shadow pada setiap section
 
-### 🖥️ Teknologi yang Digunakan
+### Teknologi yang Digunakan
 
 - HTML5
 - CSS3 (Flexbox & Media Query)
 - GitHub Pages untuk hosting
 
-### 🌐 Preview Langsung
+### Preview Langsung
 
 > https://revou-fsse-jun25.github.io/milestone-1-whtrianto/
 
-### 🖼️ Screenshot Tampilan
+### Screenshot Tampilan
 
 ![Tampilan Web](assets/screenshot1.png & assets/screenshot2.png)
 
