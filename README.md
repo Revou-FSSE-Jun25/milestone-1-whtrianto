@@ -34,8 +34,5 @@ This is the first milestone project for the RevoU Front-End Web Development prog
 1. Clone this repository:
 
 ```bash
-<<<<<<< HEAD
-git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
 =======
 git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
->>>>>>> 21d5adb2c687b4867d636a7266645f5370fa4130
