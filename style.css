@@ -16,7 +16,7 @@ body {
 
 /* Header */
 header {
-  background-color: #222;
+  background-color: #944a0d;
   color: white;
   padding: 20px;
   text-align: center;
@@ -75,7 +75,7 @@ input, textarea {
 }
 
 button {
-  background-color: #222;
+  background-color: #944a0d;
   color: white;
   padding: 10px;
   border: none;
@@ -84,14 +84,14 @@ button {
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #8b6e2b;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #222;
+  background-color: #944a0d;
   color: white;
   margin-top: 40px;
 }

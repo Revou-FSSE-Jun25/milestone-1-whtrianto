@@ -1,57 +1,37 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/akoVEwkh)
+
 # Personal Website - Milestone 1
 
-## 📄 Overview
+## Overview
 
-Ini adalah proyek milestone pertama dari program RevoU - Front-End Web Development, di mana saya membuat website pribadi menggunakan HTML untuk struktur.
+This is the first milestone project for the RevoU Front-End Web Development program. In this project, I created a personal website using HTML to build its structure.
 
-## ✨ Fitur yang Diimplementasikan
+## Implemented Features
 
-- Struktur HTML semantik (section, header, footer, main).
-- Navigasi internal melalui anchor links.
-- Halaman terdiri dari 4 bagian utama: Home, About Me, Projects, Contact.
-- Formulir kontak dengan validasi sederhana (required).
-- HTML tersusun dengan rapi dan readable.
+- Semantic HTML structure (`<section>`, `<header>`, `<footer>`, `<main>`)
+- Internal navigation using anchor links
+- Website contains four main sections:
+  - Home
+  - About Me
+  - Projects
+  - Contact
+- Contact form with basic validation (`required`)
+- Clean and readable HTML code
 
-## 🧰 Teknologi yang Digunakan
+## Technologies Used
 
-- HTML5 (pure HTML tanpa CSS pada tahap ini)
-- GitHub Pages (untuk hosting)
-- Git (untuk version control)
+- HTML5 (pure HTML, without CSS at this stage)
+- GitHub Pages (for deployment)
+- Git (for version control)
 
-## 🌐 Live Preview
+## Live Preview
 
-> Website dihosting di GitHub Pages:  
+> Visit the website:  
 > [https://revou-fsse-jun25.github.io/milestone-1-whtrianto](https://revou-fsse-jun25.github.io/milestone-1-whtrianto)
 
-## 📁 Cara Mengakses Proyek
+## How to Access This Project
 
-1. Clone repositori ini:
+1. Clone this repository:
 
-## 🎨 Styling - Milestone 2 Update
-
-Pada modul kedua, saya menambahkan file `style.css` untuk memperindah tampilan website. Berikut fitur-fitur CSS yang saya terapkan:
-
-### ✅ Fitur Styling yang Diterapkan:
-
-- Desain responsif menggunakan media query (`max-width: 768px`)
-- Tata letak asimetris dan dinamis menggunakan Flexbox
-- Penataan ulang warna, font, dan spasi untuk meningkatkan keterbacaan
-- Efek hover pada proyek agar interaktif
-- Formulir kontak dengan input yang tertata dan mudah digunakan
-- Penambahan padding, border-radius, dan shadow pada setiap section
-
-### 🖥️ Teknologi yang Digunakan
-
-- HTML5
-- CSS3 (Flexbox & Media Query)
-- GitHub Pages untuk hosting
-
-### 🌐 Preview Langsung
-
-> https://revou-fsse-jun25.github.io/milestone-1-whtrianto/
-
-### 🖼️ Screenshot Tampilan
-
-![Tampilan Web](assets/screenshot1.png & assets/screenshot2.png)
-
----
+```bash
+git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git

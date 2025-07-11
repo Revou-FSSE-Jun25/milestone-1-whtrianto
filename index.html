@@ -9,6 +9,7 @@
 <body>
 
   <header>
+    <img src="assets/123.jpg" alt="Foto Profil Wahyu Trianto" class="profile-img" />
     <h1>Wahyu Trianto</h1>
     <nav>
       <ul>
@@ -41,11 +42,16 @@
     <!-- Bagian Proyek -->
     <section id="projects">
       <h2>Proyek</h2>
-      <p>Berikut adalah contoh placeholder untuk proyek-proyek yang akan datang.</p>
+      <p>Berikut adalah contoh proyek yang sudah saya buat.</p>
       <!-- Placeholder Proyek -->
       <article>
         <h3>Sistem Pakar Diagnosa Disleksia</h3>
         <p>Sebuah website sistem pakar yang membantu mendiagnosa disleksia berdasarkan gejala menggunakan metode Forward Chaining dan Certainty Factor.</p>
+        <p><strong>Teknologi:</strong> HTML, CSS, PHP, MySQL</p>
+      </article>
+      <article>
+        <h3>Website E-Commerce Toko Mebel</h3>
+        <p>Sebuah website e-commerce yang menjual berbagai macam produk furniture dan peralatan rumah tangga.</p>
         <p><strong>Teknologi:</strong> HTML, CSS, PHP, MySQL</p>
       </article>
 
@@ -58,20 +64,102 @@
 
     <!-- Bagian Kontak -->
     <section id="contact">
-      <h2>Hubungi Saya</h2>
-      <form>
-        <label for="name">Nama:</label><br/>
-        <input type="text" id="name" name="name" required /><br/><br/>
+  <h2>Hubungi Saya</h2>
+  <form id="contactForm">
+    <label for="name">Nama:</label><br/>
+    <input type="text" id="name" name="name" required /><br/><br/>
 
-        <label for="email">Email:</label><br/>
-        <input type="email" id="email" name="email" required /><br/><br/>
+    <label for="email">Email:</label><br/>
+    <input type="email" id="email" name="email" required /><br/><br/>
 
-        <label for="message">Pesan:</label><br/>
-        <textarea id="message" name="message" required></textarea><br/><br/>
+    <label for="message">Pesan:</label><br/>
+    <textarea id="message" name="message" required></textarea><br/><br/>
 
-        <button type="submit">Kirim</button>
-      </form>
-    </section>
+    <button type="submit">Kirim</button>
+  </form>
+</section>
+
+<!-- Popup sukses -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <div class="check-icon">✅</div>
+    <h3>Pesan berhasil dikirim!</h3>
+    <p>Terima kasih telah menghubungi saya.</p>
+  </div>
+</div>
+
+<style>
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popup-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    width: 80%;
+    animation: fadeIn 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+
+  .check-icon {
+    font-size: 48px;
+    color: #944a0d;
+    margin-bottom: 10px;
+    animation: pop 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes pop {
+    0%   { transform: scale(0); opacity: 0; }
+    80%  { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #944a0d;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const popup = document.getElementById("popup");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    popup.style.display = "flex";       // Tampilkan popup
+    form.reset();                       // Kosongkan form
+
+    // Sembunyikan popup setelah 3 detik
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000);
+  });
+</script>
+
+
   </main>
 
   <footer>
