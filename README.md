@@ -111,18 +111,14 @@ w1/
 
 This is a personal portfolio project, but suggestions and feedback are welcome!
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 📞 Contact
+## Contact
 
 - **Email**: wahyutri1771@gmail.com
 - **Phone**: +62 896-6607-7720
 - **Location**: Banjarnegara, Indonesia
 - **Education**: Universitas Muhammadiyah Purwokerto
 
----
-
-**Built with ❤️ by Wahyu Trianto**  
-*RevoU Tech Academy Student*
