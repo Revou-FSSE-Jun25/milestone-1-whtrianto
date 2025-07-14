@@ -111,9 +111,9 @@ w1/
 
 This is a personal portfolio project, but suggestions and feedback are welcome!
 
-## License
+## Live Preview
 
-This project is open source and available under the [MIT License](LICENSE).
+(https://revou-fsse-jun25.github.io/milestone-1-whtrianto/)
 
 ## Contact
 
