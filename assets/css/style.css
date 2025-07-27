@@ -1,16 +1,28 @@
-/* ===== VARIABEL WARNA DAN THEME ===== */
+/*
+========================================
+VARIABEL WARNA DAN THEME
+----------------------------------------
+Menggunakan CSS custom properties (variabel) agar mudah mengubah tema dan konsistensi warna di seluruh website.
+========================================
+*/
 :root {
-    --bg-color: #0f172a;
-    --bg-secondary: #1e293b;
-    --text-color: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --primary-color: #38bdf8;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --success-color: #28a745;
+    --bg-color: #0f172a;              /* Warna latar utama (gelap) */
+    --bg-secondary: #1e293b;          /* Warna latar sekunder (card, header) */
+    --text-color: #e2e8f0;            /* Warna teks utama */
+    --text-secondary: #94a3b8;        /* Warna teks sekunder */
+    --primary-color: #38bdf8;         /* Warna aksen utama (biru) */
+    --border-color: rgba(255, 255, 255, 0.1); /* Warna border transparan */
+    --shadow-color: rgba(0, 0, 0, 0.3);      /* Warna shadow card */
+    --success-color: #28a745;         /* Warna untuk status sukses/modal */
 }
 
-/* ===== THEME LIGHT MODE ===== */
+/*
+========================================
+THEME LIGHT MODE
+----------------------------------------
+Override variabel warna untuk mode terang.
+========================================
+*/
 body.light-mode {
     --bg-color: #f8fafc;
     --bg-secondary: #ffffff;
@@ -21,11 +33,17 @@ body.light-mode {
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* ===== RESET & BASE STYLES ===== */
+/*
+========================================
+RESET & BASE STYLES
+----------------------------------------
+Reset default browser style dan set box-sizing agar padding/border tidak menambah lebar elemen.
+========================================
+*/
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Mengatur box model agar padding & border tidak menambah lebar */
+    box-sizing: border-box; /* Box model modern */
 }
 
 html {
@@ -34,38 +52,50 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Font utama */
+    font-family: 'Poppins', sans-serif; /* Font utama modern */
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.6; /* Jarak antar baris agar mudah dibaca */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transisi theme */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Hindari scroll horizontal */
 }
 
-/* ===== PARTICLES BACKGROUND ===== */
+/*
+========================================
+PARTICLES BACKGROUND
+----------------------------------------
+Efek partikel animasi di background, selalu di belakang konten utama.
+========================================
+*/
 #particles-js {
-    position: fixed; /* Efek partikel tetap di belakang */
+    position: fixed; /* Tetap di posisi background */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 0; /* Di bawah semua konten */
 }
 
 main, header, footer {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Pastikan di atas partikel */
 }
 
-/* ===== LAYOUT COMPONENTS ===== */
+/*
+========================================
+LAYOUT COMPONENTS
+----------------------------------------
+Section dan container untuk layout responsif dan terpusat.
+========================================
+*/
 .section {
-    padding: 6rem 0; /* Jarak vertikal antar section */
+    padding: 6rem 0; /* Jarak vertikal antar section, agar konten tidak terlalu rapat */
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 2rem;
+    max-width: 1100px; /* Lebar maksimal konten */
+    margin: auto;      /* Centering */
+    padding: 0 2rem;   /* Padding horizontal agar tidak mepet tepi layar */
 }
 
 .section-title {
@@ -76,27 +106,34 @@ main, header, footer {
     font-weight: 700;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/*
+========================================
+HEADER & NAVIGATION
+----------------------------------------
+Header sticky di atas, dengan efek blur dan shadow.
+Menu navigasi responsif, berubah jadi hamburger di mobile.
+========================================
+*/
 .header {
-    position: fixed; /* Header tetap di atas */
+    position: fixed; /* Selalu di atas saat scroll */
     top: 0;
     left: 0;
     width: 100%;
     padding: 1rem 0;
-    background: #1e293b; /* Warna gelap untuk header */
-    backdrop-filter: blur(10px);
+    background: #1e293b; /* Warna gelap, override agar lebih solid */
+    backdrop-filter: blur(10px); /* Efek blur transparan */
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 body.light-mode .header {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.85); /* Header lebih terang di light mode */
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo kiri, menu kanan */
     align-items: center;
 }
 
@@ -108,7 +145,7 @@ body.light-mode .header {
 }
 
 .logo span {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Highlight nama belakang */
 }
 
 .nav-menu {
@@ -118,7 +155,7 @@ body.light-mode .header {
 }
 
 .nav-item {
-    margin-left: 2rem;
+    margin-left: 2rem; /* Jarak antar menu */
 }
 
 .nav-link {
@@ -130,10 +167,16 @@ body.light-mode .header {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Highlight menu aktif/hover */
 }
 
-/* ===== THEME SWITCH ===== */
+/*
+========================================
+THEME SWITCH (TOGGLE)
+----------------------------------------
+Switch custom untuk dark/light mode, dengan icon matahari/bulan.
+========================================
+*/
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -147,7 +190,7 @@ body.light-mode .header {
 }
 
 .theme-switch input {
-    display: none;
+    display: none; /* Sembunyikan checkbox asli */
 }
 
 .slider {
@@ -177,7 +220,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(26px); /* Geser bulatan ke kanan saat aktif */
 }
 
 .slider.round {
@@ -213,9 +256,15 @@ input:checked + .slider .fa-sun {
     opacity: 1;
 }
 
-/* ===== HERO SECTION ===== */
+/*
+========================================
+HERO SECTION
+----------------------------------------
+Bagian utama landing page, full height, center content.
+========================================
+*/
 .hero {
-    height: 100vh; /* Tinggi penuh layar */
+    height: 100vh; /* Full tinggi layar */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,7 +283,7 @@ input:checked + .slider .fa-sun {
 }
 
 .hero-content h1 .highlight {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Nama diberi warna aksen */
 }
 
 .hero-content p {
@@ -243,7 +292,13 @@ input:checked + .slider .fa-sun {
     margin-bottom: 2rem;
 }
 
-/* ===== BUTTONS ===== */
+/*
+========================================
+BUTTONS
+----------------------------------------
+Tombol utama dengan efek hover dan transisi.
+========================================
+*/
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
@@ -262,11 +317,11 @@ input:checked + .slider .fa-sun {
 }
 
 body.dark-mode .btn-primary {
-    color: #0f172a;
+    color: #0f172a; /* Teks gelap di mode gelap */
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Efek naik saat hover */
     box-shadow: 0 10px 20px rgba(13, 110, 253, 0.25);
 }
 
@@ -274,10 +329,16 @@ body.dark-mode .btn-primary:hover {
     box-shadow: 0 10px 20px rgba(56, 189, 248, 0.25);
 }
 
-/* ===== ABOUT SECTION ===== */
+/*
+========================================
+ABOUT SECTION
+----------------------------------------
+Grid 2 kolom: foto profil dan deskripsi. Responsive di mobile.
+========================================
+*/
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr; /* 1/3 foto, 2/3 teks */
     gap: 3rem;
     align-items: center;
 }
@@ -285,7 +346,7 @@ body.dark-mode .btn-primary:hover {
 .about-image {
     width: 100%;
     max-width: 300px;
-    border-radius: 50%; /* Foto lingkaran */
+    border-radius: 50%; /* Foto bulat */
     border: 5px solid var(--primary-color);
     box-shadow: 0 0 30px rgba(13, 110, 253, 0.2);
     margin: auto;
@@ -300,7 +361,13 @@ body.dark-mode .about-image {
     margin-bottom: 1rem;
 }
 
-/* ===== CARDS ===== */
+/*
+========================================
+CARDS (FOKUS BELAJAR, SKILLS, PORTOFOLIO)
+----------------------------------------
+Card responsif, dengan efek hover dan shadow.
+========================================
+*/
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -317,22 +384,22 @@ body.dark-mode .about-image {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Efek naik saat hover */
     box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
     border-color: var(--primary-color);
 }
 
 #learning .card-container .card {
-    flex-basis: 300px;
+    flex-basis: 300px; /* Card lebih lebar di fokus belajar */
     flex-grow: 1;
 }
 
 #skills .card-container .card {
-    flex-basis: 130px;
+    flex-basis: 130px; /* Card lebih kecil di skills */
 }
 
 #portfolio .card-container .card {
-    flex-basis: 320px;
+    flex-basis: 320px; /* Card lebih besar di portofolio */
     flex-grow: 1;
 }
 
@@ -363,7 +430,13 @@ body.dark-mode .about-image {
     text-align: center;
 }
 
-/* ===== PROJECT CARDS ===== */
+/*
+========================================
+PROJECT CARDS (PORTOFOLIO)
+----------------------------------------
+Card khusus untuk portofolio, gambar di atas, konten di bawah.
+========================================
+*/
 .project-card {
     padding: 0;
     overflow: hidden;
@@ -374,7 +447,7 @@ body.dark-mode .about-image {
 .project-image {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* Gambar menutupi area tanpa distorsi */
 }
 
 .project-content {
@@ -434,10 +507,16 @@ body.light-mode .tag {
     font-size: 1.2rem;
 }
 
-/* ===== CONTACT SECTION ===== */
+/*
+========================================
+CONTACT SECTION
+----------------------------------------
+Grid 2 kolom: info kontak dan form. Responsive di mobile.
+========================================
+*/
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1.5fr; /* Info 1/3, form 2/3 */
     gap: 3rem;
     align-items: flex-start;
 }
@@ -515,7 +594,13 @@ textarea.form-control {
     height: 150px;
 }
 
-/* ===== FOOTER ===== */
+/*
+========================================
+FOOTER
+----------------------------------------
+Footer sederhana, sticky di bawah, dengan animasi icon.
+========================================
+*/
 .footer {
     text-align: center;
     padding: 2rem 0;
@@ -526,7 +611,7 @@ textarea.form-control {
 
 .footer .heart {
     color: var(--primary-color);
-    animation: pulse 1.5s infinite;
+    animation: pulse 1.5s infinite; /* Detak jantung */
 }
 
 @keyframes pulse {
@@ -541,7 +626,13 @@ textarea.form-control {
     }
 }
 
-/* ===== MODAL ===== */
+/*
+========================================
+MODAL (POPUP)
+----------------------------------------
+Popup konfirmasi sukses kirim pesan.
+========================================
+*/
 .modal-container {
     position: fixed;
     top: 0;
@@ -612,7 +703,14 @@ body.light-mode .modal-overlay {
     margin-bottom: 2rem;
 }
 
-/* ===== HAMBURGER MENU ===== */
+/*
+========================================
+HAMBURGER MENU (RESPONSIVE)
+----------------------------------------
+Tampilan hamburger hanya muncul di mobile.
+Animasi garis berubah jadi X saat aktif.
+========================================
+*/
 .hamburger {
     display: none;
     cursor: pointer;
@@ -635,7 +733,13 @@ body.light-mode .modal-overlay {
     border-radius: 2px;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/*
+========================================
+RESPONSIVE DESIGN
+----------------------------------------
+Mengatur layout agar tetap nyaman di tablet dan mobile.
+========================================
+*/
 /* Tablet */
 @media(max-width: 992px) {
     .contact-wrapper {
