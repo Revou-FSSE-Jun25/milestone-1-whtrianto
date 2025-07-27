@@ -43,7 +43,7 @@ This portfolio website showcases the journey and works of Wahyu Trianto as a Sof
 ## Project Structure
 
 ```
-w1/
+project/
 ├── assets/
 │   ├── css/
 │   │   └── style.css
@@ -117,14 +117,10 @@ w1/
 ## Contribution
 This is a personal portfolio project, but suggestions and feedback are very welcome!
 
-<<<<<<< HEAD
-## License
-This project is open source and available under the [MIT License](LICENSE).
-=======
+
 ## Live Preview
 
 (https://revou-fsse-jun25.github.io/milestone-1-whtrianto/)
->>>>>>> 2168da1a4503e0ac7709e9d1f68e8279470e105f
 
 ## Contact
 - **Email**: wahyutri1771@gmail.com
