@@ -1,4 +1,4 @@
-/* ===== CSS VARIABLES ===== */
+/* ===== VARIABEL WARNA DAN THEME ===== */
 :root {
     --bg-color: #0f172a;
     --bg-secondary: #1e293b;
@@ -10,7 +10,7 @@
     --success-color: #28a745;
 }
 
-/* Light mode variables */
+/* ===== THEME LIGHT MODE ===== */
 body.light-mode {
     --bg-color: #f8fafc;
     --bg-secondary: #ffffff;
@@ -25,26 +25,26 @@ body.light-mode {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Mengatur box model agar padding & border tidak menambah lebar */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Scroll halus saat klik anchor */
     background-color: var(--bg-color);
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Font utama */
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi theme */
     overflow-x: hidden;
 }
 
 /* ===== PARTICLES BACKGROUND ===== */
 #particles-js {
-    position: fixed;
+    position: fixed; /* Efek partikel tetap di belakang */
     top: 0;
     left: 0;
     width: 100%;
@@ -59,7 +59,7 @@ main, header, footer {
 
 /* ===== LAYOUT COMPONENTS ===== */
 .section {
-    padding: 6rem 0;
+    padding: 6rem 0; /* Jarak vertikal antar section */
 }
 
 .container {
@@ -78,12 +78,12 @@ main, header, footer {
 
 /* ===== HEADER & NAVIGATION ===== */
 .header {
-    position: fixed;
+    position: fixed; /* Header tetap di atas */
     top: 0;
     left: 0;
     width: 100%;
     padding: 1rem 0;
-    background: rgba(15, 23, 42, 0.8);
+    background: #1e293b; /* Warna gelap untuk header */
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -215,7 +215,7 @@ input:checked + .slider .fa-sun {
 
 /* ===== HERO SECTION ===== */
 .hero {
-    height: 100vh;
+    height: 100vh; /* Tinggi penuh layar */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +247,7 @@ input:checked + .slider .fa-sun {
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
-    border-radius: 50px;
+    border-radius: 50px; /* Bentuk pill */
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -285,7 +285,7 @@ body.dark-mode .btn-primary:hover {
 .about-image {
     width: 100%;
     max-width: 300px;
-    border-radius: 50%;
+    border-radius: 50%; /* Foto lingkaran */
     border: 5px solid var(--primary-color);
     box-shadow: 0 0 30px rgba(13, 110, 253, 0.2);
     margin: auto;
@@ -473,6 +473,16 @@ body.light-mode .tag {
     color: var(--text-secondary);
 }
 
+.contact-info a {
+    text-decoration: none;
+    color: inherit;
+    transition: text-decoration 0.2s, color 0.2s;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
 .form-wrapper h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
@@ -602,6 +612,29 @@ body.light-mode .modal-overlay {
     margin-bottom: 2rem;
 }
 
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: var(--border-color);
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: var(--text-color);
+    border-radius: 2px;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 /* Tablet */
 @media(max-width: 992px) {
@@ -616,32 +649,88 @@ body.light-mode .modal-overlay {
 
 /* Mobile */
 @media(max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
     .nav-menu {
-        display: none;
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: row;
+        background-color: var(--bg-secondary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--border-color);
+        padding: 1rem 0;
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav-item {
+        margin: 0 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+        margin-top: 0;
+        padding-top: 0.5rem;
+        border-top: none;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 0.5rem 0.8rem;
+        display: block;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+    
+    .nav-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 8px;
+        margin: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
     }
     
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        padding: 0 1rem;
+        word-wrap: break-word;
     }
     
     .hero-content p {
         font-size: 1rem;
+        padding: 0 1rem;
     }
     
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
-    }
-    
-    .about-image {
-        margin-bottom: 2rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .card {
-        padding: 1.5rem;
     }
 } 

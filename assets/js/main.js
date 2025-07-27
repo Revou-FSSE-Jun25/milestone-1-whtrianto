@@ -1,95 +1,59 @@
-// Initialize AOS (Animate On Scroll)
+// Inisialisasi AOS (Animate On Scroll) untuk animasi saat scroll
 AOS.init({ 
     duration: 800, 
     once: true, 
     offset: 50 
 });
 
-// Theme toggle functionality
+// ===== HAMBURGER MENU UNTUK MOBILE =====
+// Ambil elemen hamburger dan menu navigasi
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+// Toggle menu saat hamburger diklik
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Tutup menu mobile saat link diklik
+// (Agar menu menutup otomatis setelah memilih menu di mobile)
+document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+}));
+
+// ===== THEME SWITCH (DARK/LIGHT MODE) =====
 const themeToggle = document.getElementById('checkbox');
 const body = document.body;
 
-// Particles configuration for dark mode
+// Konfigurasi partikel untuk mode gelap
 const darkParticlesConfig = { 
     fpsLimit: 60, 
     particles: { 
-        number: { 
-            value: 60, 
-            density: { 
-                enable: true, 
-                value_area: 800 
-            } 
-        }, 
-        color: { 
-            value: "#ffffff" 
-        }, 
-        shape: { 
-            type: "circle" 
-        }, 
-        opacity: { 
-            value: 0.5, 
-            random: true 
-        }, 
-        size: { 
-            value: 3, 
-            random: true 
-        }, 
-        links: { 
-            color: "#ffffff", 
-            distance: 150, 
-            enable: true, 
-            opacity: 0.4, 
-            width: 1 
-        }, 
-        move: { 
-            enable: true, 
-            speed: 2, 
-            direction: "none", 
-            random: false, 
-            straight: false, 
-            out_mode: "out", 
-            bounce: false 
-        }, 
-    }, 
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false },
+    },
     interactivity: { 
         detectsOn: "canvas", 
-        events: { 
-            onhover: { 
-                enable: true, 
-                mode: "grab" 
-            }, 
-            onclick: { 
-                enable: true, 
-                mode: "push" 
-            }, 
-            resize: true 
-        }, 
-        modes: { 
-            grab: { 
-                distance: 140, 
-                line_linked: { 
-                    opacity: 1 
-                } 
-            }, 
-            push: { 
-                particles_nb: 4 
-            } 
-        }, 
-    }, 
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } },
+    },
     retina_detect: true 
 };
 
-// Particles configuration for light mode
+// Konfigurasi partikel untuk mode terang
 const lightParticlesConfig = {
     ...darkParticlesConfig,
     particles: {
         ...darkParticlesConfig.particles,
-        number: { 
-            value: 50 
-        },
-        color: { 
-            value: "#0d6efd" // warna biru lebih gelap agar lebih jelas di background terang
-        },
+        number: { value: 50 },
+        color: { value: "#fd990d" }, // Warna oranye untuk mode terang
         links: {
             ...darkParticlesConfig.particles.links,
             color: "#6c757d",
@@ -99,12 +63,12 @@ const lightParticlesConfig = {
     },
 };
 
-// Function to load particles
+// Fungsi untuk memuat partikel sesuai mode
 function loadParticles(config) { 
     tsParticles.load("particles-js", config); 
 }
 
-// Function to handle theme change
+// Fungsi untuk mengubah theme dan partikel
 function handleThemeChange(isLight) { 
     if (isLight) { 
         body.classList.add('light-mode'); 
@@ -117,7 +81,7 @@ function handleThemeChange(isLight) {
     } 
 }
 
-// Check current theme and apply
+// Cek theme yang tersimpan di localStorage dan terapkan
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme === 'light-mode') { 
     themeToggle.checked = true; 
@@ -126,16 +90,16 @@ if (currentTheme === 'light-mode') {
     handleThemeChange(false); 
 }
 
-// Theme toggle event listener
+// Event listener untuk toggle theme
 themeToggle.addEventListener('change', () => { 
     handleThemeChange(themeToggle.checked); 
 });
 
-// Navigation functionality
+// ===== NAVIGASI AKTIF SAAT SCROLL =====
 const sections = document.querySelectorAll('main > section');
 const navLinks = document.querySelectorAll('.nav-menu a');
 
-// Add click event to navigation links
+// Event klik pada link navigasi untuk menandai aktif
 navLinks.forEach(link => { 
     link.addEventListener('click', function() { 
         navLinks.forEach(nav => nav.classList.remove('active')); 
@@ -143,7 +107,7 @@ navLinks.forEach(link => {
     }); 
 });
 
-// Update active navigation on scroll
+// Update link aktif saat scroll
 window.addEventListener('scroll', () => { 
     let current = 'home'; 
     sections.forEach(section => { 
@@ -160,32 +124,23 @@ window.addEventListener('scroll', () => {
     }); 
 });
 
-// Contact form functionality
+// ===== FORM KONTAK KIRIM KE WHATSAPP =====
 const contactForm = document.getElementById('contact-form');
-const modalContainer = document.getElementById('success-modal');
-const closeModalBtn = document.getElementById('close-modal-btn');
-const modalOverlay = document.querySelector('.modal-overlay');
-
-// Function to show modal
-function showModal() { 
-    modalContainer.classList.add('show'); 
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const nameInput = contactForm.querySelector('input[name="name"]');
+        const messageInput = contactForm.querySelector('textarea[name="message"]');
+        const name = nameInput ? nameInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+        if (name.length === 0 || message.length === 0) {
+            alert('Nama dan pesan harus diisi!');
+            return;
+        }
+        // Kirim pesan ke WhatsApp
+        const phoneNumber = '6289666077720'; // Nomor tujuan WhatsApp
+        const text = `Halo, saya ${name} ingin mengirim pesan: ${message}`;
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    });
 }
-
-// Function to close modal
-function closeModal() { 
-    modalContainer.classList.remove('show'); 
-}
-
-// Contact form submit event
-contactForm.addEventListener('submit', function(event) { 
-    event.preventDefault(); 
-    showModal(); 
-    contactForm.reset(); 
-    setTimeout(() => { 
-        closeModal(); 
-    }, 4000); 
-});
-
-// Close modal event listeners
-closeModalBtn.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', closeModal); 

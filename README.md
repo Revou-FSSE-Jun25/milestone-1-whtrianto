@@ -1,44 +1,44 @@
 # Portfolio Website - Wahyu Trianto
 
+<!-- 
+  README.md - Wahyu Trianto's Portfolio Website Documentation
+  This file contains complete information about the portfolio website
+  created as a milestone project for RevoU Tech Academy
+-->
+
 ## Overview
 
-This is my personal portfolio website showcasing my journey as a Software Engineering student at RevoU Tech Academy. The website features a modern, responsive design with interactive elements and showcases my projects, skills, and learning focus.
+This portfolio website showcases the journey and works of Wahyu Trianto as a Software Engineer & Graphic Designer. The site features a modern, responsive, and interactive design, highlighting various real-world projects, skills, and learning focus in the field of information technology.
 
-## Features
+## Main Features
 
-### Core Sections
-- **Home**: Hero section with introduction and CV download
-- **About**: Personal background and current learning journey
-- **Learning Focus**: Areas of study (Backend Development, Python, Database Management)
-- **Skills**: Technologies I've learned (HTML5, CSS3, JavaScript, PHP, MySQL, Python, Figma, Git)
-- **Portfolio**: Showcase of my projects with live demos and GitHub links
-- **Contact**: Contact form and personal information
+### Main Sections
+- **Home**: Brief introduction and professional headline
+- **About**: Short profile, experience, and motivation
+- **Learning Focus**: Main learning areas (Front-End, Back-End, Python, PHP, Database)
+- **Skills**: List of mastered technologies (HTML5, CSS3, JavaScript, PHP, MySQL, Python, Figma, Git)
+- **Portfolio**: Showcase of real projects with live demo links
+- **Contact**: Contact information and a form to send messages directly to WhatsApp
 
 ### Interactive Features
-- **Dark/Light Theme Toggle**: Switch between themes with animated icons
-- **Smooth Scrolling Navigation**: Responsive navigation with active state indicators
-- **AOS Animations**: Scroll-triggered animations for enhanced user experience
-- **Particles.js Background**: Interactive particle system for visual appeal
-- **Contact Form**: Functional contact form with success modal
-- **Responsive Design**: Mobile-first approach with modern CSS
+- **Dark/Light Theme Toggle**: Switch between dark and light themes with animation
+- **Hamburger Menu**: Responsive navigation for mobile
+- **Smooth Scrolling Navigation**: Navigation with active highlight
+- **AOS Animations**: Scroll-triggered animations
+- **Particles.js Background**: Interactive particle background effect
+- **WhatsApp Form**: Contact form directly connected to WhatsApp
+- **Responsive Design**: Optimized display for desktop, tablet, and mobile
 
 ## Technologies Used
 
-### Frontend
 - **HTML5**: Semantic structure and accessibility
 - **CSS3**: Modern styling with Flexbox, Grid, and animations
-- **JavaScript**: Interactive functionality and form handling
-- **Font Awesome**: Icon library for UI elements
-- **Google Fonts**: Poppins font family for typography
-
-### Libraries & Frameworks
-- **AOS (Animate On Scroll)**: Scroll-triggered animations
-- **Particles.js**: Interactive background particles
-- **Font Awesome 6.4.0**: Icon library
-
-### Development Tools
+- **JavaScript**: Interactive functionality and event handling
+- **Font Awesome**: Icon library
+- **Google Fonts**: Poppins typography
+- **AOS (Animate On Scroll)**: Scroll animations
+- **Particles.js**: Particle background effect
 - **Git**: Version control
-- **GitHub Pages**: Deployment platform
 
 ## Project Structure
 
@@ -54,71 +54,82 @@ w1/
 │       ├── 7847.jpg
 │       └── CV_WahyuTrianto.pdf
 ├── index.html
-├── style.css
 └── README.md
 ```
 
-## Key Projects Showcased
+## Portfolio Projects
 
-1. **Sistem Pakar Diagnosa Disleksia**
-   - PHP & MySQL based expert system
-   - Forward Chaining and Certainty Factor methods
-   - Live demo available
+1. **Zentrix Kreasi**  
+   A creative company in graphic design & website development.  
+   [Live Demo](https://zentrix.siabid.id)
 
-2. **Website E-Commerce Toko Mebel**
-   - Full-featured e-commerce platform
-   - Product catalog, shopping cart, order management
-   - PHP & MySQL implementation
+2. **Sistem Pakar Diagnosa Disleksia**  
+   An expert system based on PHP & MySQL for dyslexia diagnosis.  
+   [Live Demo](https://siabid.informatika.ump.ac.id)
 
-3. **Klasifikasi Tingkat Kematangan Pisang**
-   - Machine learning project using Python
-   - KNN algorithm for banana ripeness classification
-   - Computer vision application
+3. **Klinik**  
+   Clinic profile website, doctors, and health services.  
+   [Live Demo](https://zentrix-kreasi.vercel.app/ariyanto.html)
+
+4. **Toko Rajutan**  
+   Knitting shop profile website and product catalog.  
+   [Live Demo](https://zentrix-kreasi.vercel.app/bubay.html)
+
+5. **Pakan Ternak**  
+   Livestock feed product information website.  
+   [Live Demo](https://pembuatan-websites.vercel.app)
+
+6. **Digital Wedding Invitation Website**  
+   Interactive and responsive digital wedding invitation.  
+   [Live Demo](https://fanifita-wedding.vercel.app/?kepada=Di+tempat)
+
+7. **Banana Ripeness Classification**  
+   Machine learning for banana ripeness classification (Python, KNN).  
+   [GitHub](https://github.com/whtrianto/klasifikasi-buah-pisang)
 
 ## Design Features
-
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
-- **Accessibility**: Semantic HTML and proper ARIA labels
-- **Performance**: Optimized assets and efficient code structure
-- **Cross-browser Compatibility**: Tested across modern browsers
+- **Modern UI/UX**: Professional design, smooth animations
+- **Responsive Layout**: Desktop, tablet, and mobile
+- **Accessibility**: Semantic HTML, easy navigation
+- **Performance**: Efficient code and optimized assets
+- **Cross-browser**: Tested on modern browsers
 
 ## Getting Started
 
-1. **Clone the repository**:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
    ```
-
-2. **Open the project**:
-   - Navigate to the project directory
-   - Open `index.html` in your web browser
+2. **Open the project**
+   - Open `index.html` in your browser
    - Or use a local server for development
-
-3. **Customize**:
-   - Update personal information in `index.html`
-   - Modify styles in `assets/css/style.css`
-   - Add new projects to the portfolio section
+3. **Customize**
+   - Edit data in `index.html`
+   - Change styles in `assets/css/style.css`
+   - Add new projects in the portfolio section
 
 ## Browser Support
-
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
-## Contributing
-
-This is a personal portfolio project, but suggestions and feedback are welcome!
+## Contribution
+This is a personal portfolio project, but suggestions and feedback are very welcome!
 
 ## License
-
 This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
-
 - **Email**: wahyutri1771@gmail.com
-- **Phone**: +62 896-6607-7720
+- **WhatsApp**: +62 896-6607-7720
 - **Location**: Banjarnegara, Indonesia
 - **Education**: Universitas Muhammadiyah Purwokerto
+
+<!--
+  This website was created as a milestone project for RevoU Tech Academy
+  Built with modern technologies for learning purposes
+  Focused on great user experience
+  Responsive for all screen sizes
+-->
 
