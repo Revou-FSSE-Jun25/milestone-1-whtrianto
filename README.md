@@ -51,8 +51,7 @@ project/
 │   │   └── main.js
 │   └── img/
 │       ├── 123.jpg
-│       ├── 7847.jpg
-│       └── CV_WahyuTrianto.pdf
+│       └── 7847.jpg
 ├── index.html
 └── README.md
 ```
