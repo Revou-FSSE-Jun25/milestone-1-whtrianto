@@ -1,6 +1,6 @@
 # Portfolio Website - Wahyu Trianto
 
-<!-- 
+<!--
   README.md - Wahyu Trianto's Portfolio Website Documentation
   This file contains complete information about the portfolio website
   created as a milestone project for RevoU Tech Academy
@@ -8,11 +8,12 @@
 
 ## Overview
 
-This portfolio website showcases the journey and works of Wahyu Trianto as a Software Engineer & Graphic Designer. The site features a modern, responsive, and interactive design, highlighting various real-world projects, skills, and learning focus in the field of information technology.
+This portfolio website showcases the journey and works of Wahyu Trianto as a Software Engineer & Graphic Designer. The site features a modern, responsive, and interactive design, highlighting various real-world projects, skills, and learning focus in the field of information technology. The portfolio is built as a milestone project for RevoU Tech Academy and is continuously updated with new projects and features.
 
 ## Main Features
 
 ### Main Sections
+
 - **Home**: Brief introduction and professional headline
 - **About**: Short profile, experience, and motivation
 - **Learning Focus**: Main learning areas (Front-End, Back-End, Python, PHP, Database)
@@ -21,12 +22,16 @@ This portfolio website showcases the journey and works of Wahyu Trianto as a Sof
 - **Contact**: Contact information and a form to send messages directly to WhatsApp
 
 ### Interactive Features
+
 - **Dark/Light Theme Toggle**: Switch between dark and light themes with animation
 - **Hamburger Menu**: Responsive navigation for mobile
 - **Smooth Scrolling Navigation**: Navigation with active highlight
 - **AOS Animations**: Scroll-triggered animations
 - **Particles.js Background**: Interactive particle background effect
 - **WhatsApp Form**: Contact form directly connected to WhatsApp
+- **Animated Buttons & Cards**: Unique hover and scroll effects for each section
+- **Social Media Footer**: Responsive, icon-based social links
+- **SEO Optimized**: Meta tags for Google and social sharing
 - **Responsive Design**: Optimized display for desktop, tablet, and mobile
 
 ## Technologies Used
@@ -59,11 +64,11 @@ project/
 ## Portfolio Projects
 
 1. **Zentrix Kreasi**  
-   A creative company in graphic design & website development.  
+   Creative company in graphic design & website development.  
    [Live Demo](https://zentrix.siabid.id)
 
 2. **Sistem Pakar Diagnosa Disleksia**  
-   An expert system based on PHP & MySQL for dyslexia diagnosis.  
+   Expert system for dyslexia diagnosis (PHP & MySQL).  
    [Live Demo](https://siabid.informatika.ump.ac.id)
 
 3. **Klinik**  
@@ -86,7 +91,12 @@ project/
    Machine learning for banana ripeness classification (Python, KNN).  
    [GitHub](https://github.com/whtrianto/klasifikasi-buah-pisang)
 
+8. **Kolam Renang Selo Asih**  
+   Promotional website for Selo Asih swimming pool, featuring facilities, gallery, location, and ticket info.  
+   [Live Demo](https://zentrix-kreasi.vercel.app/seloasih.html)
+
 ## Design Features
+
 - **Modern UI/UX**: Professional design, smooth animations
 - **Responsive Layout**: Desktop, tablet, and mobile
 - **Accessibility**: Semantic HTML, easy navigation
@@ -108,20 +118,22 @@ project/
    - Add new projects in the portfolio section
 
 ## Browser Support
+
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
 ## Contribution
-This is a personal portfolio project, but suggestions and feedback are very welcome!
 
+This is a personal portfolio project, but suggestions and feedback are very welcome!
 
 ## Live Preview
 
-(https://revou-fsse-jun25.github.io/milestone-1-whtrianto/)
+https://revou-fsse-jun25.github.io/milestone-1-whtrianto/
 
 ## Contact
+
 - **Email**: wahyutri1771@gmail.com
 - **WhatsApp**: +62 896-6607-7720
 - **Location**: Banjarnegara, Indonesia
@@ -133,4 +145,3 @@ This is a personal portfolio project, but suggestions and feedback are very welc
   Focused on great user experience
   Responsive for all screen sizes
 -->
-
