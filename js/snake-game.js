@@ -788,6 +788,7 @@ class SnakeGame {
      * - Array iteration dengan forEach
      * - Template literals
      * - Element creation
+     * - Array sorting untuk ranking
      */
     showScoreHistory() {
         if (this.audioManager) {
@@ -800,11 +801,22 @@ class SnakeGame {
         if (this.scoreHistory.length === 0) {
             this.scoreHistoryList.innerHTML = '<p style="text-align: center; color: #666;">Belum ada riwayat skor</p>';
         } else {
-            this.scoreHistory.forEach((entry, index) => {
+            // Sort by score in descending order (highest first)
+            const sortedHistory = [...this.scoreHistory].sort((a, b) => b.score - a.score);
+            
+            sortedHistory.forEach((entry, index) => {
+                const rank = index + 1;
+                let rankClass = 'rank-other';
+                
+                // Determine rank class based on position
+                if (rank === 1) rankClass = 'rank-1';
+                else if (rank === 2) rankClass = 'rank-2';
+                else if (rank === 3) rankClass = 'rank-3';
+                
                 const scoreItem = document.createElement('div');
                 scoreItem.className = 'score-history-item';
                 scoreItem.innerHTML = `
-                    <div class="score-rank">#${index + 1}</div>
+                    <div class="score-rank ${rankClass}">#${rank}</div>
                     <div class="score-details">
                         <div class="score-value">${entry.score} poin</div>
                         <div class="score-length">Panjang: ${entry.length}</div>

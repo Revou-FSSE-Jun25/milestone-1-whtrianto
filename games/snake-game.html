@@ -12,7 +12,7 @@
         /* High Score History Styling */
         .high-score-history {
             background: rgba(0, 0, 0, 0.9);
-            border: 2px solid #00ff9d;
+            border: 2px solid #ffea00;
             border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
@@ -21,7 +21,7 @@
         
         .high-score-history h3 {
             text-align: center;
-            color: #00ff9d;
+            color: #ffe100;
             margin-bottom: 15px;
         }
         
@@ -34,22 +34,43 @@
         .score-history-item {
             display: flex;
             align-items: center;
-            background: rgba(0, 255, 157, 0.1);
-            border: 1px solid rgba(0, 255, 157, 0.3);
+            background: rgba(255, 238, 0, 0.1);
+            border: 1px solid rgba(255, 251, 0, 0.3);
             border-radius: 8px;
             padding: 10px;
             margin-bottom: 8px;
         }
         
         .score-rank {
-            background: #00ff9d;
-            color: #000;
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 50%;
             margin-right: 15px;
             min-width: 30px;
             text-align: center;
+        }
+        
+        .score-rank.rank-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .score-rank.rank-2 {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            color: #000;
+            box-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+        }
+        
+        .score-rank.rank-3 {
+            background: linear-gradient(135deg, #cd7f32, #daa520);
+            color: #fff;
+            box-shadow: 0 0 8px rgba(205, 127, 50, 0.5);
+        }
+        
+        .score-rank.rank-other {
+            background: #c69a9a;
+            color: #fff;
         }
         
         .score-details {
@@ -59,7 +80,7 @@
         .score-value {
             font-size: 18px;
             font-weight: bold;
-            color: #00ff9d;
+            color: #eeff00;
         }
         
         .score-length {
