@@ -31,6 +31,13 @@ class TicTacToe {
         this.oWinsCountEl = document.getElementById('oWinsCount');
         this.drawsCountEl = document.getElementById('drawsCount');
         
+        // Debug: Check if elements are found
+        console.log('DOM elements found:', {
+            xWinsCountEl: !!this.xWinsCountEl,
+            oWinsCountEl: !!this.oWinsCountEl,
+            drawsCountEl: !!this.drawsCountEl
+        });
+        
         // Audio integration
         this.audioManager = window.audioManager;
         
@@ -42,6 +49,7 @@ class TicTacToe {
         this.bindEvents();
         this.updateDisplay();
         this.renderHistory();
+        this.updateCountersUI(); // Ensure initial counters are displayed
     }
     
     createBoard() {
@@ -272,6 +280,7 @@ class TicTacToe {
         this.winnerHistory = [];
         this.winCounters = { X: 0, O: 0, D: 0 };
         this.renderHistory();
+        this.updateCountersUI(); // Ensure counters are updated immediately
     }
 
     incrementCounter(winnerChar) {
@@ -282,9 +291,19 @@ class TicTacToe {
     }
 
     updateCountersUI() {
-        if (this.xWinsCountEl) this.xWinsCountEl.textContent = String(this.winCounters.X);
-        if (this.oWinsCountEl) this.oWinsCountEl.textContent = String(this.winCounters.O);
-        if (this.drawsCountEl) this.drawsCountEl.textContent = String(this.winCounters.D);
+        // Ensure counters are properly updated in the UI
+        if (this.xWinsCountEl) {
+            this.xWinsCountEl.textContent = String(this.winCounters.X);
+        }
+        if (this.oWinsCountEl) {
+            this.oWinsCountEl.textContent = String(this.winCounters.O);
+        }
+        if (this.drawsCountEl) {
+            this.drawsCountEl.textContent = String(this.winCounters.D);
+        }
+        
+        // Debug log to verify reset is working
+        console.log('Counters updated:', this.winCounters);
     }
 }
 
