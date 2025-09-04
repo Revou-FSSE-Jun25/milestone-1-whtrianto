@@ -76,6 +76,11 @@ class SnakeGame {
         this.gameLoop = null;     // Reference ke interval timer
         this.directionLocked = false; // Kunci arah per tick untuk cegah multi-input
         
+        // ===== HIGH SCORE SYSTEM =====
+        this.highScore = 0;       // Skor tertinggi saat ini
+        this.scoreHistory = [];   // Array untuk menyimpan riwayat skor
+        this.maxHistoryEntries = 10; // Maksimal 10 entri riwayat
+        
         // ===== DOM ELEMENTS =====
         // Mengambil elemen HTML yang diperlukan untuk UI
         this.startButton = document.getElementById('startButton');
@@ -83,11 +88,18 @@ class SnakeGame {
         this.scoreElement = document.getElementById('score');
         this.lengthElement = document.getElementById('length');
         this.gameStatusElement = document.getElementById('gameStatus');
+        this.highScoreElement = document.getElementById('highScore');
+        this.showHistoryButton = document.getElementById('showHistoryButton');
+        this.highScoreHistory = document.getElementById('highScoreHistory');
+        this.scoreHistoryList = document.getElementById('scoreHistoryList');
+        this.clearHistoryButton = document.getElementById('clearHistoryButton');
+        this.closeHistoryButton = document.getElementById('closeHistoryButton');
         
         // ===== AUDIO INTEGRATION =====
         this.audioManager = window.audioManager;
         
         // ===== INITIALIZATION =====
+        this.loadHighScore();     // Load high score from localStorage
         this.bindEvents();        // Setup event listeners
         this.draw();              // Draw initial game state
         this.updateDisplay();     // Update UI elements
@@ -110,6 +122,11 @@ class SnakeGame {
         // Event listener untuk tombol start dan restart
         this.startButton.addEventListener('click', () => this.startGame());
         this.restartButton.addEventListener('click', () => this.restartGame());
+        
+        // Event listener untuk high score history
+        this.showHistoryButton.addEventListener('click', () => this.showScoreHistory());
+        this.closeHistoryButton.addEventListener('click', () => this.hideScoreHistory());
+        this.clearHistoryButton.addEventListener('click', () => this.clearScoreHistory());
         
         // Event listener untuk keyboard input
         // 'keydown' event terjadi setiap kali tombol ditekan
@@ -538,6 +555,7 @@ class SnakeGame {
      * - Text rendering pada canvas
      * - UI state changes
      * - Audio feedback untuk game over
+     * - High score tracking dan localStorage
      */
     gameOver() {
         this.gameRunning = false;
@@ -546,6 +564,9 @@ class SnakeGame {
         if (this.audioManager) {
             this.audioManager.playGameEvent('over');
         }
+        
+        // ===== HIGH SCORE CHECKING =====
+        this.checkHighScore();
         
         // Stop game loop
         if (this.gameLoop) {
@@ -568,6 +589,12 @@ class SnakeGame {
         this.ctx.textAlign = 'center';
         this.ctx.fillText('GAME OVER!', this.canvas.width / 2, this.canvas.height / 2 - 20);
         this.ctx.fillText(`Skor: ${this.score}`, this.canvas.width / 2, this.canvas.height / 2 + 20);
+        
+        // Show high score message if new record
+        if (this.score === this.highScore && this.score > 0) {
+            this.ctx.font = '20px Arial';
+            this.ctx.fillText('🏆 SKOR TERTINGGI BARU!', this.canvas.width / 2, this.canvas.height / 2 + 50);
+        }
     }
     
     /**
@@ -581,6 +608,7 @@ class SnakeGame {
         // Null checking: hanya update jika elemen ada
         if (this.scoreElement) this.scoreElement.textContent = this.score;
         if (this.lengthElement) this.lengthElement.textContent = this.snake.length;
+        if (this.highScoreElement) this.highScoreElement.textContent = this.highScore;
     }
     
     /**
@@ -663,6 +691,163 @@ class SnakeGame {
                 this.gridSize - 4,
                 this.gridSize - 4
             );
+        }
+    }
+    
+    /**
+     * loadHighScore() - Load high score dari localStorage
+     * 
+     * Konsep yang dipelajari:
+     * - localStorage untuk persistent data
+     * - JSON parsing
+     * - Error handling
+     */
+    loadHighScore() {
+        try {
+            // Load high score
+            const savedHighScore = localStorage.getItem('snakeGameHighScore');
+            if (savedHighScore) {
+                this.highScore = parseInt(savedHighScore);
+            }
+            
+            // Load score history
+            const savedHistory = localStorage.getItem('snakeGameScoreHistory');
+            if (savedHistory) {
+                this.scoreHistory = JSON.parse(savedHistory);
+            }
+        } catch (error) {
+            console.error('Error loading high score:', error);
+            this.highScore = 0;
+            this.scoreHistory = [];
+        }
+    }
+    
+    /**
+     * saveHighScore() - Save high score ke localStorage
+     * 
+     * Konsep yang dipelajari:
+     * - localStorage untuk persistent data
+     * - JSON stringify
+     * - Error handling
+     */
+    saveHighScore() {
+        try {
+            localStorage.setItem('snakeGameHighScore', this.highScore.toString());
+            localStorage.setItem('snakeGameScoreHistory', JSON.stringify(this.scoreHistory));
+        } catch (error) {
+            console.error('Error saving high score:', error);
+        }
+    }
+    
+    /**
+     * checkHighScore() - Cek dan update high score
+     * 
+     * Konsep yang dipelajari:
+     * - Score comparison
+     * - Array manipulation (unshift, slice)
+     * - Date object untuk timestamp
+     */
+    checkHighScore() {
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+            this.updateDisplay();
+        }
+        
+        // Add to score history
+        const scoreEntry = {
+            score: this.score,
+            date: new Date().toLocaleString('id-ID', {
+                timeZone: 'Asia/Jakarta',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            }),
+            length: this.snake.length
+        };
+        
+        // Add to beginning of array
+        this.scoreHistory.unshift(scoreEntry);
+        
+        // Keep only the latest entries
+        if (this.scoreHistory.length > this.maxHistoryEntries) {
+            this.scoreHistory = this.scoreHistory.slice(0, this.maxHistoryEntries);
+        }
+        
+        // Save to localStorage
+        this.saveHighScore();
+    }
+    
+    /**
+     * showScoreHistory() - Tampilkan riwayat skor
+     * 
+     * Konsep yang dipelajari:
+     * - DOM manipulation
+     * - Array iteration dengan forEach
+     * - Template literals
+     * - Element creation
+     */
+    showScoreHistory() {
+        if (this.audioManager) {
+            this.audioManager.playAction('click');
+        }
+        
+        // Clear previous content
+        this.scoreHistoryList.innerHTML = '';
+        
+        if (this.scoreHistory.length === 0) {
+            this.scoreHistoryList.innerHTML = '<p style="text-align: center; color: #666;">Belum ada riwayat skor</p>';
+        } else {
+            this.scoreHistory.forEach((entry, index) => {
+                const scoreItem = document.createElement('div');
+                scoreItem.className = 'score-history-item';
+                scoreItem.innerHTML = `
+                    <div class="score-rank">#${index + 1}</div>
+                    <div class="score-details">
+                        <div class="score-value">${entry.score} poin</div>
+                        <div class="score-length">Panjang: ${entry.length}</div>
+                        <div class="score-date">${entry.date}</div>
+                    </div>
+                `;
+                this.scoreHistoryList.appendChild(scoreItem);
+            });
+        }
+        
+        this.highScoreHistory.style.display = 'block';
+    }
+    
+    /**
+     * hideScoreHistory() - Sembunyikan riwayat skor
+     */
+    hideScoreHistory() {
+        if (this.audioManager) {
+            this.audioManager.playAction('click');
+        }
+        
+        this.highScoreHistory.style.display = 'none';
+    }
+    
+    /**
+     * clearScoreHistory() - Hapus semua riwayat skor
+     * 
+     * Konsep yang dipelajari:
+     * - Array reset
+     * - localStorage clearing
+     * - User confirmation
+     */
+    clearScoreHistory() {
+        if (this.audioManager) {
+            this.audioManager.playAction('click');
+        }
+        
+        if (confirm('Apakah Anda yakin ingin menghapus semua riwayat skor?')) {
+            this.scoreHistory = [];
+            this.highScore = 0;
+            this.updateDisplay();
+            this.saveHighScore();
+            this.showScoreHistory(); // Refresh display
         }
     }
 }

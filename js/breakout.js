@@ -540,12 +540,19 @@ class CyberBreakout {
         
         // ===== BALL COLLISION WITH WALLS =====
         // Bounce off left and right walls
-        if (this.ball.x + this.ball.radius > this.canvas.width || this.ball.x - this.ball.radius < 0) {
+        if (this.ball.x + this.ball.radius > this.canvas.width) {
+            // Ball hit right wall
+            this.ball.x = this.canvas.width - this.ball.radius; // Clamp to wall
+            this.ball.dx = -this.ball.dx; // Reverse horizontal direction
+        } else if (this.ball.x - this.ball.radius < 0) {
+            // Ball hit left wall
+            this.ball.x = this.ball.radius; // Clamp to wall
             this.ball.dx = -this.ball.dx; // Reverse horizontal direction
         }
         
         // Bounce off top wall
         if (this.ball.y - this.ball.radius < 0) {
+            this.ball.y = this.ball.radius; // Clamp to wall
             this.ball.dy = -this.ball.dy; // Reverse vertical direction
         }
         
@@ -893,10 +900,12 @@ class CyberBreakout {
         }
         
         this.level++;                    // Naik level
-        this.ball.speed += 0.7;          // Tambah kecepatan bola
         
-        // ===== CLEAR ACTIVE POWER-UPS =====
+        // ===== CLEAR ACTIVE POWER-UPS FIRST =====
         this.clearAllPowerUps();
+        
+        // ===== INCREASE BALL SPEED AFTER RESET =====
+        this.ball.speed += 0.7;          // Tambah kecepatan bola
         
         this.initBlocks();               // Reset blocks
         this.resetBall();                // Reset bola
@@ -941,12 +950,24 @@ class CyberBreakout {
      * - Object iteration dengan Object.keys()
      * - clearTimeout untuk cleanup
      * - Power-up state reset
+     * - Property reset untuk paddle dan ball
      */
     clearAllPowerUps() {
         // Clear semua timer power-up
         Object.keys(this.powerUpTimers).forEach(type => {
             clearTimeout(this.powerUpTimers[type]);
         });
+        
+        // Clear semua countdown timers
+        Object.keys(this.powerUpCountdowns).forEach(type => {
+            clearInterval(this.powerUpCountdowns[type]);
+        });
+        
+        // Reset paddle ke ukuran normal
+        this.paddle.width = 100;
+        
+        // Reset ball speed ke kecepatan dasar
+        this.ball.speed = this.ball.baseSpeed;
         
         // Reset power-up state
         this.activePowerUps = {};
@@ -1046,14 +1067,14 @@ class CyberBreakout {
      */
     drawPaddle() {
         // ===== PADDLE GLOW =====
-        this.ctx.shadowColor = '#ff0000'; // Warna shadow coklat
+        this.ctx.shadowColor = '#ff0000'; // Warna shadow merah
         this.ctx.shadowBlur = 20;         // Intensitas blur
-        this.ctx.fillStyle = '#ff0000';   // Warna paddle coklat
+        this.ctx.fillStyle = '#ff0000';   // Warna paddle merah
         this.ctx.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
         this.ctx.shadowBlur = 0;          // Reset shadow
         
         // ===== PADDLE BORDER =====
-        this.ctx.strokeStyle = '#886441'; // Border merah
+        this.ctx.strokeStyle = '#886441'; // Border coklat
         this.ctx.lineWidth = 2;
         this.ctx.strokeRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
     }
