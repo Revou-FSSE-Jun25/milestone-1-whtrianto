@@ -1,147 +1,66 @@
-# Portfolio Website - Wahyu Trianto
+# RevoFun - Landing Page Perusahaan Game
 
-<!--
-  README.md - Wahyu Trianto's Portfolio Website Documentation
-  This file contains complete information about the portfolio website
-  created as a milestone project for RevoU Tech Academy
--->
+Selamat datang di RevoFun! Proyek ini adalah sebuah landing page interaktif untuk perusahaan game fiktif yang menyediakan akses ke 6 game sederhana berbasis JavaScript. Proyek ini dibuat untuk menunjukkan kemampuan dalam pengembangan web front-end, khususnya manipulasi DOM dan logika game dengan JavaScript.
 
-## Overview
+**Demo Langsung:** [Link ke Website Anda yang sudah di-deploy]
 
-This portfolio website showcases the journey and works of Wahyu Trianto as a Software Engineer & Graphic Designer. The site features a modern, responsive, and interactive design, highlighting various real-world projects, skills, and learning focus in the field of information technology. The portfolio is built as a milestone project for RevoU Tech Academy and is continuously updated with new projects and features.
+## 📜 Gambaran Umum Proyek
 
-## Main Features
+Tujuan utama proyek ini adalah menciptakan sebuah platform online yang menarik bagi pemain kasual. Landing page ini tidak hanya memperkenalkan brand "RevoFun", tetapi juga berfungsi sebagai portal untuk memainkan game browser yang ringan dan menghibur.
 
-### Main Sections
+## ✨ Fitur yang Diimplementasikan
 
-- **Home**: Brief introduction and professional headline
-- **About**: Short profile, experience, and motivation
-- **Learning Focus**: Main learning areas (Front-End, Back-End, Python, PHP, Database)
-- **Skills**: List of mastered technologies (HTML5, CSS3, JavaScript, PHP, MySQL, Python, Figma, Git)
-- **Portfolio**: Showcase of real projects with live demo links
-- **Contact**: Contact information and a form to send messages directly to WhatsApp
+- **Halaman Utama (Home Page)**:
 
-### Interactive Features
+  - Perkenalan visual perusahaan dengan desain yang menarik.
+  - Daftar game yang tersedia dengan deskripsi singkat.
+  - Navigasi yang mudah ke halaman game masing-masing.
 
-- **Dark/Light Theme Toggle**: Switch between dark and light themes with animation
-- **Hamburger Menu**: Responsive navigation for mobile
-- **Smooth Scrolling Navigation**: Navigation with active highlight
-- **AOS Animations**: Scroll-triggered animations
-- **Particles.js Background**: Interactive particle background effect
-- **WhatsApp Form**: Contact form directly connected to WhatsApp
-- **Animated Buttons & Cards**: Unique hover and scroll effects for each section
-- **Social Media Footer**: Responsive, icon-based social links
-- **SEO Optimized**: Meta tags for Google and social sharing
-- **Responsive Design**: Optimized display for desktop, tablet, and mobile
+- **Game yang Tersedia (6 Game)**:
 
-## Technologies Used
+  1.  **Tebak Angka**: Pemain mencoba menebak angka rahasia yang dipilih komputer dengan petunjuk "Terlalu tinggi" atau "Terlalu rendah" dalam batas percobaan.
+  2.  **Batu, Kertas, Gunting**: Game klasik melawan komputer. Proyek ini menyertakan fitur opsional penyimpanan skor dan nickname menggunakan `localStorage`.
+  3.  **Memory Card Game**: Pemain harus menemukan semua pasangan kartu yang cocok di papan permainan, melatih daya ingat dan konsentrasi.
+  4.  **Snake Game**: Game arcade klasik! Kendalikan ular dan makan makanan untuk tumbuh lebih panjang. Hindari dinding dan tubuhmu sendiri!
+  5.  **Tic Tac Toe**: Game strategi klasik melawan AI komputer. Siapa yang bisa membuat garis 3 simbol terlebih dahulu?
+  6.  **Color Match**: Uji refleksmu! Klik warna yang sama dengan yang ditampilkan. Semakin cepat, semakin tinggi skormu!
 
-- **HTML5**: Semantic structure and accessibility
-- **CSS3**: Modern styling with Flexbox, Grid, and animations
-- **JavaScript**: Interactive functionality and event handling
-- **Font Awesome**: Icon library
-- **Google Fonts**: Poppins typography
-- **AOS (Animate On Scroll)**: Scroll animations
-- **Particles.js**: Particle background effect
-- **Git**: Version control
+- **Desain Responsif**: Tampilan website dapat beradaptasi dengan baik di berbagai ukuran layar, mulai dari desktop hingga mobile.
 
-## Project Structure
+- **Pengalaman Pengguna**: Antarmuka yang bersih, navigasi intuitif, dan gameplay yang lancar untuk memastikan pengalaman yang menyenangkan.
 
-```
-project/
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── main.js
-│   └── img/
-│       ├── 123.jpg
-│       └── 7847.jpg
-├── index.html
-└── README.md
-```
+## 🛠️ Teknologi yang Digunakan
 
-## Portfolio Projects
+- **HTML5**: Untuk struktur konten website.
+- **CSS3**: Untuk styling dan layout.
+  - **Flexbox & Grid**: Untuk tata letak yang modern dan responsif.
+  - **CSS Variables**: Untuk manajemen tema yang mudah.
+  - **Google Fonts**: Untuk tipografi yang menarik.
+- **JavaScript (ES6+)**:
+  - Manipulasi DOM untuk membuat gameplay interaktif.
+  - Event Listeners untuk menangani input dari pengguna.
+  - Conditional Statements, Loops, Functions, Arrays, dan Objects untuk membangun logika game.
+  - `localStorage` untuk menyimpan data seperti skor dan nickname pengguna.
 
-1. **Zentrix Kreasi**  
-   Creative company in graphic design & website development.  
-   [Live Demo](https://zentrix.siabid.id)
+## 🚀 Cara Menjalankan Proyek Secara Lokal
 
-2. **Sistem Pakar Diagnosa Disleksia**  
-   Expert system for dyslexia diagnosis (PHP & MySQL).  
-   [Live Demo](https://siabid.informatika.ump.ac.id)
+1.  **Clone repositori ini:**
+    ```bash
+    git clone https://github.com/username-anda/revofun-landing-page.git
+    ```
+2.  **Masuk ke direktori proyek:**
+    ```bash
+    cd revofun-landing-page
+    ```
+3.  **Buka file `index.html` di browser Anda.**
+    - Anda bisa langsung mengklik dua kali file `index.html` atau menggunakan ekstensi seperti "Live Server" di Visual Studio Code.
 
-3. **Klinik**  
-   Clinic profile website, doctors, and health services.  
-   [Live Demo](https://zentrix-kreasi.vercel.app/ariyanto.html)
+## 📸 Screenshot
 
-4. **Toko Rajutan**  
-   Knitting shop profile website and product catalog.  
-   [Live Demo](https://zentrix-kreasi.vercel.app/bubay.html)
+_(Di sini Anda bisa menambahkan screenshot dari halaman utama dan setiap game)_
 
-5. **Pakan Ternak**  
-   Livestock feed product information website.  
-   [Live Demo](https://pembuatan-websites.vercel.app)
+**Halaman Utama:**
+![Screenshot Halaman Utama](link-ke-screenshot-anda.jpg)
 
-6. **Digital Wedding Invitation Website**  
-   Interactive and responsive digital wedding invitation.  
-   [Live Demo](https://fanifita-wedding.vercel.app/?kepada=Di+tempat)
-
-7. **Banana Ripeness Classification**  
-   Machine learning for banana ripeness classification (Python, KNN).  
-   [GitHub](https://github.com/whtrianto/klasifikasi-buah-pisang)
-
-8. **Kolam Renang Selo Asih**  
-   Promotional website for Selo Asih swimming pool, featuring facilities, gallery, location, and ticket info.  
-   [Live Demo](https://zentrix-kreasi.vercel.app/seloasih.html)
-
-## Design Features
-
-- **Modern UI/UX**: Professional design, smooth animations
-- **Responsive Layout**: Desktop, tablet, and mobile
-- **Accessibility**: Semantic HTML, easy navigation
-- **Performance**: Efficient code and optimized assets
-- **Cross-browser**: Tested on modern browsers
-
-## Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
-   ```
-2. **Open the project**
-   - Open `index.html` in your browser
-   - Or use a local server for development
-3. **Customize**
-   - Edit data in `index.html`
-   - Change styles in `assets/css/style.css`
-   - Add new projects in the portfolio section
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contribution
-
-This is a personal portfolio project, but suggestions and feedback are very welcome!
-
-## Live Preview
-
-https://revou-fsse-jun25.github.io/milestone-1-whtrianto/
-
-## Contact
-
-- **Email**: wahyutri1771@gmail.com
-- **WhatsApp**: +62 896-6607-7720
-- **Location**: Banjarnegara, Indonesia
-- **Education**: Universitas Muhammadiyah Purwokerto
-
-<!--
-  This website was created as a milestone project for RevoU Tech Academy
-  Built with modern technologies for learning purposes
-  Focused on great user experience
-  Responsive for all screen sizes
--->
+**Game Tebak Angka:**
+![Screenshot Game Tebak Angka](link-ke-screenshot-anda.jpg)
