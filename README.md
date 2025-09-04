@@ -1,66 +1,68 @@
-# RevoFun - Landing Page Perusahaan Game
+# RevoFun - Portal Game Browser Interaktif
 
-Selamat datang di RevoFun! Proyek ini adalah sebuah landing page interaktif untuk perusahaan game fiktif yang menyediakan akses ke 6 game sederhana berbasis JavaScript. Proyek ini dibuat untuk menunjukkan kemampuan dalam pengembangan web front-end, khususnya manipulasi DOM dan logika game dengan JavaScript.
+Selamat datang di RevoFun! Ini adalah landing page interaktif yang menjadi portal untuk memainkan 10 game browser berbasis JavaScript. Proyek ini berfokus pada pengalaman UI/UX, manipulasi DOM, serta logika game sederhana yang menyenangkan.
 
-**Demo Langsung:** [Link ke Website Anda yang sudah di-deploy]
+**Demo Langsung:** [https://revou-fsse-jun25.github.io/milestone-1-whtrianto/]
 
 ## 📜 Gambaran Umum Proyek
 
-Tujuan utama proyek ini adalah menciptakan sebuah platform online yang menarik bagi pemain kasual. Landing page ini tidak hanya memperkenalkan brand "RevoFun", tetapi juga berfungsi sebagai portal untuk memainkan game browser yang ringan dan menghibur.
+RevoFun menyajikan etalase 10 game kasual dengan tampilan modern, animasi ringan, serta integrasi audio efek dan musik latar. Setiap kartu game pada halaman utama mengarah ke file HTML game masing-masing.
 
-## ✨ Fitur yang Diimplementasikan
+## ✨ Fitur Utama
 
-- **Halaman Utama (Home Page)**:
+- **Halaman Utama (Home Page)**
 
-  - Perkenalan visual perusahaan dengan desain yang menarik.
-  - Daftar game yang tersedia dengan deskripsi singkat.
-  - Navigasi yang mudah ke halaman game masing-masing.
+  - Branding RevoFun, judul, subtitle, dan ikon animasi.
+  - Daftar 10 game dengan deskripsi ringkas dan tombol ajakan bermain.
+  - Statistik singkat dan seksi "Coming Soon".
 
-- **Game yang Tersedia (6 Game)**:
+- **Daftar Game (10 Game)**
 
-  1.  **Tebak Angka**: Pemain mencoba menebak angka rahasia yang dipilih komputer dengan petunjuk "Terlalu tinggi" atau "Terlalu rendah" dalam batas percobaan.
-  2.  **Batu, Kertas, Gunting**: Game klasik melawan komputer. Proyek ini menyertakan fitur opsional penyimpanan skor dan nickname menggunakan `localStorage`.
-  3.  **Memory Card Game**: Pemain harus menemukan semua pasangan kartu yang cocok di papan permainan, melatih daya ingat dan konsentrasi.
-  4.  **Snake Game**: Game arcade klasik! Kendalikan ular dan makan makanan untuk tumbuh lebih panjang. Hindari dinding dan tubuhmu sendiri!
-  5.  **Tic Tac Toe**: Game strategi klasik melawan AI komputer. Siapa yang bisa membuat garis 3 simbol terlebih dahulu?
-  6.  **Color Match**: Uji refleksmu! Klik warna yang sama dengan yang ditampilkan. Semakin cepat, semakin tinggi skormu!
+  1. **Tebak Angka** (`games/number-guessing.html`)
+  2. **Batu, Kertas, Gunting** (`games/rock-paper-scissors.html`)
+  3. **Memory Card** (`games/memory-game.html`)
+  4. **Snake Game** (`games/snake-game.html`)
+  5. **Tic Tac Toe** (`games/tic-tac-toe.html`)
+  6. **Color Match** (`games/color-match.html`)
+  7. **Cyber Bird (Flappy Bird)** (`games/flappy-bird.html`)
+  8. **2048 Puzzle** (`games/2048-puzzle.html`)
+  9. **Cyber Breakout** (`games/breakout.html`)
+  10. **Balap Mobil** (`games/balap-mobil.html`)
 
-- **Desain Responsif**: Tampilan website dapat beradaptasi dengan baik di berbagai ukuran layar, mulai dari desktop hingga mobile.
+- **Desain Responsif**
 
-- **Pengalaman Pengguna**: Antarmuka yang bersih, navigasi intuitif, dan gameplay yang lancar untuk memastikan pengalaman yang menyenangkan.
+  - Mendukung layar desktop hingga perangkat mobile.
+
+- **Integrasi Audio**
+  - Efek suara untuk hover, klik, dan event di dalam game.
+  - Musik latar per game, dapat dikontrol melalui komponen kontrol audio.
+  - Pengaktifan audio dipicu interaksi user pertama untuk kompatibilitas browser.
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **HTML5**: Untuk struktur konten website.
-- **CSS3**: Untuk styling dan layout.
-  - **Flexbox & Grid**: Untuk tata letak yang modern dan responsif.
-  - **CSS Variables**: Untuk manajemen tema yang mudah.
-  - **Google Fonts**: Untuk tipografi yang menarik.
-- **JavaScript (ES6+)**:
-  - Manipulasi DOM untuk membuat gameplay interaktif.
-  - Event Listeners untuk menangani input dari pengguna.
-  - Conditional Statements, Loops, Functions, Arrays, dan Objects untuk membangun logika game.
-  - `localStorage` untuk menyimpan data seperti skor dan nickname pengguna.
+- **HTML5** untuk struktur konten.
+- **CSS3** untuk styling dan layout (menggunakan Flexbox/Grid, variabel CSS, Google Fonts).
+- **JavaScript (ES6+)** untuk interaksi, logika game, dan penyimpanan sederhana (mis. `localStorage` pada beberapa game).
 
-## 🚀 Cara Menjalankan Proyek Secara Lokal
+## 🚀 Menjalankan Secara Lokal
 
-1.  **Clone repositori ini:**
-    ```bash
-    git clone https://github.com/username-anda/revofun-landing-page.git
-    ```
-2.  **Masuk ke direktori proyek:**
-    ```bash
-    cd revofun-landing-page
-    ```
-3.  **Buka file `index.html` di browser Anda.**
-    - Anda bisa langsung mengklik dua kali file `index.html` atau menggunakan ekstensi seperti "Live Server" di Visual Studio Code.
+1. Buka folder proyek ini.
+2. Jalankan langsung `index.html` di browser, atau gunakan ekstensi "Live Server" pada VS Code.
 
-## 📸 Screenshot
+## 📁 Struktur Folder Singkat
 
-_(Di sini Anda bisa menambahkan screenshot dari halaman utama dan setiap game)_
+- `index.html` — Halaman utama RevoFun.
+- `games/` — Halaman HTML masing‑masing game.
+- `js/` — Skrip utama dan skrip per game (termasuk integrasi audio dan logika game).
+- `audio/` — Berkas musik latar dan efek suara.
+- `style.css`, `audio-controls.css` — Gaya tampilan dan kontrol audio.
 
-**Halaman Utama:**
-![Screenshot Halaman Utama](link-ke-screenshot-anda.jpg)
+## 🎧 Catatan Audio
 
-**Game Tebak Angka:**
-![Screenshot Game Tebak Angka](link-ke-screenshot-anda.jpg)
+- Audio dikendalikan melalui skrip di `js/` (mis. `audio-manager-*.js`, `audio-integration-helper.js`).
+- Suara akan aktif setelah interaksi pertama pengguna (klik/hover) agar kompatibel dengan kebijakan auto‑play browser.
+
+## 🌐 Deploy
+
+- Dapat di-deploy ke layanan statis seperti GitHub Pages, Netlify, atau Vercel.
+- Pastikan seluruh aset (audio, CSS, JS) memiliki path relatif yang benar.
