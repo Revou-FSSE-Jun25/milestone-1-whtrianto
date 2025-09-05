@@ -1,5 +1,7 @@
 # Portfolio Website - Wahyu Trianto
 
+**Demo Langsung:** [https://revou-fsse-jun25.github.io/milestone-1-whtrianto/]
+
 ## Overview
 
 This is my personal portfolio website showcasing my journey as a Software Engineering student at RevoU Tech Academy. The website features a modern, responsive design with interactive elements and showcases my projects, skills, and learning focus.
@@ -7,6 +9,7 @@ This is my personal portfolio website showcasing my journey as a Software Engine
 ## Features
 
 ### Core Sections
+
 - **Home**: Hero section with introduction and CV download
 - **About**: Personal background and current learning journey
 - **Learning Focus**: Areas of study (Backend Development, Python, Database Management)
@@ -15,6 +18,7 @@ This is my personal portfolio website showcasing my journey as a Software Engine
 - **Contact**: Contact form and personal information
 
 ### Interactive Features
+
 - **Dark/Light Theme Toggle**: Switch between themes with animated icons
 - **Smooth Scrolling Navigation**: Responsive navigation with active state indicators
 - **AOS Animations**: Scroll-triggered animations for enhanced user experience
@@ -25,6 +29,7 @@ This is my personal portfolio website showcasing my journey as a Software Engine
 ## Technologies Used
 
 ### Frontend
+
 - **HTML5**: Semantic structure and accessibility
 - **CSS3**: Modern styling with Flexbox, Grid, and animations
 - **JavaScript**: Interactive functionality and form handling
@@ -32,40 +37,26 @@ This is my personal portfolio website showcasing my journey as a Software Engine
 - **Google Fonts**: Poppins font family for typography
 
 ### Libraries & Frameworks
+
 - **AOS (Animate On Scroll)**: Scroll-triggered animations
 - **Particles.js**: Interactive background particles
 - **Font Awesome 6.4.0**: Icon library
 
 ### Development Tools
+
 - **Git**: Version control
 - **GitHub Pages**: Deployment platform
-
-## Project Structure
-
-```
-w1/
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── main.js
-│   └── img/
-│       ├── 123.jpg
-│       ├── 7847.jpg
-│       └── CV_WahyuTrianto.pdf
-├── index.html
-├── style.css
-└── README.md
-```
 
 ## Key Projects Showcased
 
 1. **Sistem Pakar Diagnosa Disleksia**
+
    - PHP & MySQL based expert system
    - Forward Chaining and Certainty Factor methods
    - Live demo available
 
 2. **Website E-Commerce Toko Mebel**
+
    - Full-featured e-commerce platform
    - Product catalog, shopping cart, order management
    - PHP & MySQL implementation
@@ -86,11 +77,13 @@ w1/
 ## Getting Started
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
    ```
 
 2. **Open the project**:
+
    - Navigate to the project directory
    - Open `index.html` in your web browser
    - Or use a local server for development
@@ -121,4 +114,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - **Phone**: +62 896-6607-7720
 - **Location**: Banjarnegara, Indonesia
 - **Education**: Universitas Muhammadiyah Purwokerto
-
