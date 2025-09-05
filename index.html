@@ -3,248 +3,894 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RevoFun - Mainkan Game Seru!</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="audio-controls.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Portfolio Profesional - Wahyu Trianto</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8941F;
+            --light-gold: #F4E4C1;
+            --dark: #1a1a1a;
+            --darker: #0f0f0f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--darker);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Enhanced Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            overflow: hidden;
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Animated Gradient Overlay */
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            animation: gradientMove 20s ease-in-out infinite;
+        }
+        
+        @keyframes gradientMove {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(-20px, -20px) rotate(120deg);
+            }
+            66% {
+                transform: translate(20px, -10px) rotate(240deg);
+            }
+        }
+        
+        /* Floating Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.3), transparent 70%);
+            filter: blur(40px);
+            animation: orbFloat 20s infinite ease-in-out;
+        }
+        
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+        
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+        
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes orbFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 10px) scale(1.05);
+            }
+        }
+        
+        /* Grid Pattern */
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 10s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        /* Gold Gradient Text */
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        /* Gold Border */
+        .gold-border {
+            position: relative;
+            background: linear-gradient(var(--darker), var(--darker)) padding-box,
+                        linear-gradient(135deg, var(--gold), var(--light-gold), var(--gold)) border-box;
+            border: 2px solid transparent;
+        }
+        
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Skill Bar */
+        .skill-bar {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--light-gold));
+            border-radius: 4px;
+            animation: progress 2s ease-out;
+        }
+        
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+        }
+        
+        /* Project Card */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-gold);
+        }
+        
+        /* Loading Animation removed */
+        
+        /* Mouse Trail Effect */
+        .mouse-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.5), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.1s ease;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>RevoFun</h1>
-            <p>Destinasi Utama untuk Game Browser Sederhana & Menghibur</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <div class="main-header">
-            <div class="floating-icons">
-                <div class="floating-icon">🎮</div>
-                <div class="floating-icon">🎯</div>
-                <div class="floating-icon">🏆</div>
-                <div class="floating-icon">⭐</div>
+    <!-- Loading Screen removed -->
+    
+    <!-- Enhanced Animated Background -->
+    <div class="animated-bg" id="animatedBg">
+        <div class="grid-pattern"></div>
+        <div class="gradient-overlay"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+    
+    <!-- Mouse Trail Effect -->
+    <div class="mouse-trail" id="mouseTrail"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gold-gradient playfair">WT</h1>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-yellow-400">Beranda</a>
+                    <a href="#about" class="nav-link text-white hover:text-yellow-400">Tentang</a>
+                    <a href="#skills" class="nav-link text-white hover:text-yellow-400">Keahlian</a>
+                    <a href="#projects" class="nav-link text-white hover:text-yellow-400">Proyek</a>
+                    <a href="#contact" class="nav-link text-white hover:text-yellow-400">Kontak</a>
+                </div>
+                <button class="md:hidden text-white" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-            <h2 class="main-title">
-                <span class="title-text">Pilih Game Favoritmu</span>
-                <div class="title-underline"></div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/90" id="mobileMenu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-white hover:text-yellow-400">Beranda</a>
+                <a href="#about" class="block text-white hover:text-yellow-400">Tentang</a>
+                <a href="#skills" class="block text-white hover:text-yellow-400">Keahlian</a>
+                <a href="#projects" class="block text-white hover:text-yellow-400">Proyek</a>
+                <a href="#contact" class="block text-white hover:text-yellow-400">Kontak</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="text-center max-w-4xl mx-auto">
+            <h2 class="text-5xl md:text-7xl font-bold mb-6 playfair">
+                Halo, Saya <span class="gold-gradient">Wahyu Trianto</span>
             </h2>
-            <p class="main-subtitle">10 Game Seru yang Siap Dimainkan!</p>
-        </div>
-
-        <div class="game-list">
-            <!-- Game Card 1: Number Guessing -->
-            <div class="game-card" data-game="number">
-                <div class="card-glow"></div>
-                <div class="card-icon">🔢</div>
-                <h3>Tebak Angka</h3>
-                <p>Uji keberuntungan dan logikamu! Komputer memilih angka rahasia, bisakah kamu menebaknya dalam 5 percobaan?</p>
-                <div class="card-features">
-                    <span class="feature">🎲 Random</span>
-                    <span class="feature">🧠 Logika</span>
-                    <span class="feature">⚡ Cepat</span>
-                </div>
-                <a href="games/number-guessing.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                Full Stack Developer & UI/UX Designer
+            </p>
+            <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                Menciptakan pengalaman digital yang menakjubkan dengan teknologi modern dan desain yang elegan.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="gold-border px-8 py-3 rounded-lg text-white hover:bg-yellow-500 hover:text-yellow-400 transition-all duration-300 hover-lift">
+                    Lihat Portfolio
                 </a>
-            </div>
-
-            <!-- Game Card 2: Rock Paper Scissors -->
-            <div class="game-card" data-game="rps">
-                <div class="card-glow"></div>
-                <div class="card-icon">✂️</div>
-                <h3>Batu, Kertas, Gunting</h3>
-                <p>Game klasik sepanjang masa. Kalahkan komputer dalam pertarungan strategi dan keberuntungan. Skor tertinggimu akan disimpan!</p>
-                <div class="card-features">
-                    <span class="feature">🏆 Skor</span>
-                    <span class="feature">🎯 Strategi</span>
-                    <span class="feature">💾 Simpan</span>
-                </div>
-                <a href="games/rock-paper-scissors.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 3: Memory Game -->
-            <div class="game-card" data-game="memory">
-                <div class="card-glow"></div>
-                <div class="card-icon">🧠</div>
-                <h3>Memory Card</h3>
-                <p>Latih ingatanmu dengan mencari semua pasangan kartu yang cocok. Semakin cepat, semakin baik!</p>
-                <div class="card-features">
-                    <span class="feature">🧠 Ingatan</span>
-                    <span class="feature">⏱️ Waktu</span>
-                    <span class="feature">🎴 Kartu</span>
-                </div>
-                <a href="games/memory-game.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 4: Snake Game -->
-            <div class="game-card" data-game="snake">
-                <div class="card-glow"></div>
-                <div class="card-icon">🐍</div>
-                <h3>Snake Game</h3>
-                <p>Game klasik arcade! Kendalikan ular dan makan makanan untuk tumbuh lebih panjang. Hindari dinding dan tubuhmu sendiri!</p>
-                <div class="card-features">
-                    <span class="feature">🎮 Arcade</span>
-                    <span class="feature">🍎 Makanan</span>
-                    <span class="feature">📈 Skor</span>
-                </div>
-                <a href="games/snake-game.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 5: Tic Tac Toe -->
-            <div class="game-card" data-game="tictactoe">
-                <div class="card-glow"></div>
-                <div class="card-icon">❌⭕</div>
-                <h3>Tic Tac Toe</h3>
-                <p>Game strategi klasik! Mainkan melawan teman atau komputer. Siapa yang bisa membuat garis 3 simbol terlebih dahulu?</p>
-                <div class="card-features">
-                    <span class="feature">🎮 Multiplayer</span>
-                    <span class="feature">🎯 Strategi</span>
-                    <span class="feature">⚔️ Duel</span>
-                </div>
-                <a href="games/tic-tac-toe.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 6: Color Match -->
-            <div class="game-card" data-game="color">
-                <div class="card-glow"></div>
-                <div class="card-icon">🎨</div>
-                <h3>Color Match</h3>
-                <p>Uji refleksmu! Klik warna yang sama dengan yang ditampilkan. Semakin cepat, semakin tinggi skormu!</p>
-                <div class="card-features">
-                    <span class="feature">⚡ Refleks</span>
-                    <span class="feature">🎨 Warna</span>
-                    <span class="feature">🏃 Cepat</span>
-                </div>
-                <a href="games/color-match.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 7: Cyber Bird -->
-            <div class="game-card" data-game="cyberbird">
-                <div class="card-glow"></div>
-                <div class="card-icon">🐦</div>
-                <h3>Cyber Bird</h3>
-                <p>Game terbang cyberpunk! Hindari pipa dan rintangan dengan kontrol yang smooth. Terbang setinggi mungkin!</p>
-                <div class="card-features">
-                    <span class="feature">🦅 Terbang</span>
-                    <span class="feature">🎯 Hindari</span>
-                    <span class="feature">🏆 Skor</span>
-                </div>
-                <a href="games/flappy-bird.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 8: 2048 Puzzle -->
-            <div class="game-card" data-game="puzzle">
-                <div class="card-glow"></div>
-                <div class="card-icon">🧩</div>
-                <h3>2048 Puzzle</h3>
-                <p>Game puzzle matematika yang adiktif! Gabungkan tile yang sama untuk mencapai 2048. Fitur undo tersedia!</p>
-                <div class="card-features">
-                    <span class="feature">🧮 Matematika</span>
-                    <span class="feature">↩️ Undo</span>
-                    <span class="feature">🎯 Strategi</span>
-                </div>
-                <a href="games/2048-puzzle.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 9: Cyber Breakout -->
-            <div class="game-card" data-game="breakout">
-                <div class="card-glow"></div>
-                <div class="card-icon">🏓</div>
-                <h3>Cyber Breakout</h3>
-                <p>Game arcade klasik dengan twist modern! Hancurkan blok dengan bola dan paddle. Power-ups menanti!</p>
-                <div class="card-features">
-                    <span class="feature">🏓 Arcade</span>
-                    <span class="feature">⚡ Power-ups</span>
-                    <span class="feature">📈 Level</span>
-                </div>
-                <a href="games/breakout.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-
-            <!-- Game Card 10: Balap Mobil -->
-            <div class="game-card" data-game="carrace">
-                <div class="card-glow"></div>
-                <div class="card-icon">🚘</div>
-                <h3>Balap Mobil</h3>
-                <p>Hindari mobil lawan di jalan raya! Kumpulkan power-up, tingkatkan kecepatan, dan capai skor tertinggi!</p>
-                <div class="card-features">
-                    <span class="feature">🏎️ Kecepatan</span>
-                    <span class="feature">🎯 Hindari</span>
-                    <span class="feature">🏆 Skor</span>
-                </div>
-                <a href="games/balap-mobil.html" class="btn">
-                    <span class="btn-text">Mainkan Sekarang</span>
-                    <span class="btn-arrow">→</span>
+                <a href="#contact" class="border-2 border-yellow-500 px-8 py-3 rounded-lg text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300 hover-lift">
+                    Hubungi Saya
                 </a>
             </div>
         </div>
-
-        <div class="main-footer">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Game Seru</div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 playfair">
+                Tentang <span class="gold-gradient">Saya</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="gold-border p-1 rounded-lg">
+                        <img src="assets/img/123.jpg" alt="Profile" class="rounded-lg w-full">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-500 rounded-lg opacity-20"></div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">24</div>
-                    <div class="stat-label">Jam Bermain Kapan Saja</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Gratis</div>
-                </div>
-            </div>
-            <div class="cta-section">
-                <h3>Mau Game Lainnya?</h3>
-                <p>Tunggu unggahan game selanjutnya!</p>
-                <div class="coming-soon">
-                    <span class="coming-soon-text">Coming Soon...</span>
-                    <div class="pulse-dots">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Developer & Designer Kreatif</h3>
+                    <p class="text-gray-300 mb-6">
+                        Dengan pengalaman lebih dari 5 tahun di industri teknologi, saya telah membantu berbagai perusahaan 
+                        mengubah ide mereka menjadi produk digital yang sukses. Saya percaya bahwa kombinasi antara 
+                        teknologi yang kuat dan desain yang intuitif adalah kunci untuk menciptakan pengalaman pengguna 
+                        yang luar biasa.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white/5 p-4 rounded-lg">
+                            <i class="fas fa-code text-yellow-500 text-2xl mb-2"></i>
+                            <h4 class="font-semibold">Clean Code</h4>
+                            <p class="text-sm text-gray-400">Kode yang terstruktur dan mudah dipelihara</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg">
+                            <i class="fas fa-palette text-yellow-500 text-2xl mb-2"></i>
+                            <h4 class="font-semibold">Modern Design</h4>
+                            <p class="text-sm text-gray-400">Desain yang mengikuti tren terkini</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/whtrianto" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/wahyu-trianto" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://wa.me/+6289666077720" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/whtrianto/" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i class="fab fa-x text-2xl"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <a href="https://portofolio-wahyu-trianto.vercel.app/" style="text-decoration: none; color: white;">
-            <p class="glow-copyright">&copy; 2025 Wahyu Trianto.</p>
-        </a>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-black/30">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 playfair">
+                Keahlian <span class="gold-gradient">Saya</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Frontend Development</span>
+                                <span class="text-yellow-500">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Backend Development</span>
+                                <span class="text-yellow-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>UI/UX Design</span>
+                                <span class="text-yellow-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Database Management</span>
+                                <span class="text-yellow-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Technologies</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fab fa-react text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">React</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fab fa-node-js text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">Node.js</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fab fa-git-alt text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">Git</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fab fa-python text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">Python</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fas fa-database text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">SqlDB</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg text-center hover-lift cursor-pointer">
+                            <i class="fab fa-php text-4xl text-yellow-500 mb-2"></i>
+                            <p class="text-sm">PHP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 playfair">
+                Proyek <span class="gold-gradient">Terbaru</span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/logo1.png" alt="Project 1" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Zentrix Kreasi</h3>
+                        <p class="text-gray-400 mb-4">Zentrix Kreasi adalah perusahaan kreatif yang bergerak di bidang desain grafis dan pengembangan website modern untuk kebutuhan bisnis.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Company</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://zentrix.siabid.id" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/zentrix-kreasi" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/game.jpg" alt="Project 2" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Game Online</h3>
+                        <p class="text-gray-400 mb-4">Platform game online yang menarik dan menantang.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://zentrixfun.vercel.app/" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/sistem-pakar-diagnosa-disleksia" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/ai.png" alt="Project 2" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Sistem Pakar Diagnosa Disleksia</h3>
+                        <p class="text-gray-400 mb-4">Aplikasi sistem pakar untuk membantu identifikasi dini gejala disleksia pada anak menggunakan metode Forward Chaining dan Certainty Factor.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">PHP</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">MySQL</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Sistem Pakar</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://siabid.informatika.ump.ac.id" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/sistem-pakar-diagnosa-disleksia" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/bubay.jpg" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Toko Rajutan</h3>
+                        <p class="text-gray-400 mb-4">Website toko rajutan dengan katalog produk, detail informasi, dan layanan pemesanan online yang mudah diakses.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Company</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://zentrix-kreasi.vercel.app/bubay.html" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/toko-rajutan" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/klinik.jpg" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Klinik</h3>
+                        <p class="text-gray-400 mb-4">Website klinik yang menampilkan informasi layanan kesehatan, profil dokter, dan pendaftaran online secara mudah dan responsif.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Clinic</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://zentrix-kreasi.vercel.app/ariyanto.html" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo 1
+                            </a><br>
+                            <a href="https://qiana-medika.siabid.id" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo 2
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/klinik" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/ternak.webp" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Pakan Ternak</h3>
+                        <p class="text-gray-400 mb-4">Website pakan ternak yang menyediakan informasi produk, manfaat, dan tips perawatan hewan untuk peternak.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Ternak</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://pembuatan-websites.vercel.app" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/pakan-ternak" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/nikah.jpeg" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Website Undangan Pernikahan Digital</h3>
+                        <p class="text-gray-400 mb-4">Website undangan pernikahan digital yang interaktif, responsif, dan dilengkapi fitur RSVP serta katalog produk.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Wedding</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://fanifita-wedding.vercel.app/?kepada=Di+tempat" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/toko-rajutan" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/pisang.jpg" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Klasifikasi Tingkat Kematangan Pisang</h3>
+                        <p class="text-gray-400 mb-4">Model machine learning KNN untuk klasifikasi tingkat kematangan pisang secara otomatis dari gambar.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">Python</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://github.com/whtrianto/klasifikasi-buah-pisang" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card gold-border p-1 rounded-lg hover-lift h-full">
+                    <div class="bg-black rounded-lg p-6 h-full flex flex-col">
+                        <img src="assets/img/renang.jpeg" alt="Project 3" class="rounded-lg mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold mb-2">Kolam Renang Selo Asih</h3>
+                        <p class="text-gray-400 mb-4">Website promosi kolam renang Selo Asih yang menampilkan fasilitas, galeri, lokasi, dan informasi tiket secara interaktif dan modern.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">HTML</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">CSS</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-yellow-500/20 text-yellow-500 px-2 py-1 rounded">LandingPage</span>
+                        </div>
+                        <div class="flex gap-4 mt-auto">
+                            <a href="https://zentrix-kreasi.vercel.app/seloasih.html" class="text-yellow-500 hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="https://github.com/whtrianto/toko-rajutan" class="text-gray-400 hover:text-white">
+                                <i class="fab fa-github"></i> GitHub
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-black/30">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 playfair">
+                Hubungi <span class="gold-gradient">Saya</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Mari Bekerja Sama</h3>
+                    <p class="text-gray-300 mb-8">
+                        Saya selalu terbuka untuk diskusi tentang proyek baru, ide kreatif, atau peluang untuk menjadi 
+                        bagian dari visi Anda.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-envelope text-yellow-500 text-xl"></i>
+                            <a href="mailto:wahyutri1771@gmail.com" class="text-yellow-500 hover:text-yellow-400">wahyutri1771@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fab fa-whatsapp text-yellow-500 text-xl"></i>
+                            <a href="https://wa.me/+6289666077720" class="text-yellow-500 hover:text-yellow-400">+62 896-6607-7720</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-map-marker-alt text-yellow-500 text-xl"></i>
+                            <a href="https://www.google.com/maps/place/Banjarnegara,+Jawa+Tengah" target="_blank" rel="noopener" class="text-yellow-500 hover:text-yellow-400">Banjarnegara, Indonesia</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-center">Kirim Cepat</h3>
+                    <form id="quick-contact-form" class="space-y-4">
+                        <div>
+                            <input type="text" name="name" placeholder="Nama Anda" class="w-full bg-white/5 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500 transition-colors" required>
+                        </div>
+                        <div>
+                            <textarea name="message" placeholder="Pesan Anda" rows="4" class="w-full bg-white/5 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-yellow-500 transition-colors resize-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full gold-border py-3 rounded-lg text-white hover:bg-yellow-500 hover:text-yellow-400 transition-all duration-300 hover-lift">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">© 2025 Wahyu Trianto</p>
+            <!-- <p class="text-gray-500 text-sm mt-2">Dibuat dengan <i class="fas fa-heart text-yellow-500"></i> menggunakan HTML, CSS & JavaScript</p> -->
+        </div>
     </footer>
-
-    <!-- Audio Manager Scripts -->
-    <script src="js/audio-manager-with-demo.js"></script>
-    <!-- <script src="js/audio-controls.js"></script> -->
-    <script src="js/audio-test-helper.js"></script>
-    <script src="js/audio-integration-helper.js"></script>
-    <script src="js/quick-audio-test.js"></script>
-    <script src="js/home.js"></script>
+    
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const bg = document.getElementById('animatedBg');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                bg.appendChild(particle);
+            }
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Quick contact to WhatsApp
+        const quickForm = document.getElementById('quick-contact-form');
+        if (quickForm) {
+            quickForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = quickForm.querySelector('input[name="name"]').value.trim();
+                const message = quickForm.querySelector('textarea[name="message"]').value.trim();
+                if (!name || !message) return;
+                const phoneNumber = '6289666077720';
+                const text = `Halo, saya ${name}, ingin menyampaikan: ${message}`;
+                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+                window.open(url, '_blank');
+                quickForm.reset();
+            });
+        }
+        
+        // Loader removed
+        
+        // Initialize particles
+        createParticles();
+        
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>

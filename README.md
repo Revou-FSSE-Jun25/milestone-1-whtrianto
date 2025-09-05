@@ -1,68 +1,124 @@
-# RevoFun - Portal Game Browser Interaktif
+# Portfolio Website - Wahyu Trianto
 
-Selamat datang di RevoFun! Ini adalah landing page interaktif yang menjadi portal untuk memainkan 10 game browser berbasis JavaScript. Proyek ini berfokus pada pengalaman UI/UX, manipulasi DOM, serta logika game sederhana yang menyenangkan.
+## Overview
 
-**Demo Langsung:** [https://revou-fsse-jun25.github.io/milestone-1-whtrianto/]
+This is my personal portfolio website showcasing my journey as a Software Engineering student at RevoU Tech Academy. The website features a modern, responsive design with interactive elements and showcases my projects, skills, and learning focus.
 
-## 📜 Gambaran Umum Proyek
+## Features
 
-RevoFun menyajikan etalase 10 game kasual dengan tampilan modern, animasi ringan, serta integrasi audio efek dan musik latar. Setiap kartu game pada halaman utama mengarah ke file HTML game masing-masing.
+### Core Sections
+- **Home**: Hero section with introduction and CV download
+- **About**: Personal background and current learning journey
+- **Learning Focus**: Areas of study (Backend Development, Python, Database Management)
+- **Skills**: Technologies I've learned (HTML5, CSS3, JavaScript, PHP, MySQL, Python, Figma, Git)
+- **Portfolio**: Showcase of my projects with live demos and GitHub links
+- **Contact**: Contact form and personal information
 
-## ✨ Fitur Utama
+### Interactive Features
+- **Dark/Light Theme Toggle**: Switch between themes with animated icons
+- **Smooth Scrolling Navigation**: Responsive navigation with active state indicators
+- **AOS Animations**: Scroll-triggered animations for enhanced user experience
+- **Particles.js Background**: Interactive particle system for visual appeal
+- **Contact Form**: Functional contact form with success modal
+- **Responsive Design**: Mobile-first approach with modern CSS
 
-- **Halaman Utama (Home Page)**
+## Technologies Used
 
-  - Branding RevoFun, judul, subtitle, dan ikon animasi.
-  - Daftar 10 game dengan deskripsi ringkas dan tombol ajakan bermain.
-  - Statistik singkat dan seksi "Coming Soon".
+### Frontend
+- **HTML5**: Semantic structure and accessibility
+- **CSS3**: Modern styling with Flexbox, Grid, and animations
+- **JavaScript**: Interactive functionality and form handling
+- **Font Awesome**: Icon library for UI elements
+- **Google Fonts**: Poppins font family for typography
 
-- **Daftar Game (10 Game)**
+### Libraries & Frameworks
+- **AOS (Animate On Scroll)**: Scroll-triggered animations
+- **Particles.js**: Interactive background particles
+- **Font Awesome 6.4.0**: Icon library
 
-  1. **Tebak Angka** (`games/number-guessing.html`)
-  2. **Batu, Kertas, Gunting** (`games/rock-paper-scissors.html`)
-  3. **Memory Card** (`games/memory-game.html`)
-  4. **Snake Game** (`games/snake-game.html`)
-  5. **Tic Tac Toe** (`games/tic-tac-toe.html`)
-  6. **Color Match** (`games/color-match.html`)
-  7. **Cyber Bird (Flappy Bird)** (`games/flappy-bird.html`)
-  8. **2048 Puzzle** (`games/2048-puzzle.html`)
-  9. **Cyber Breakout** (`games/breakout.html`)
-  10. **Balap Mobil** (`games/balap-mobil.html`)
+### Development Tools
+- **Git**: Version control
+- **GitHub Pages**: Deployment platform
 
-- **Desain Responsif**
+## Project Structure
 
-  - Mendukung layar desktop hingga perangkat mobile.
+```
+w1/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── img/
+│       ├── 123.jpg
+│       ├── 7847.jpg
+│       └── CV_WahyuTrianto.pdf
+├── index.html
+├── style.css
+└── README.md
+```
 
-- **Integrasi Audio**
-  - Efek suara untuk hover, klik, dan event di dalam game.
-  - Musik latar per game, dapat dikontrol melalui komponen kontrol audio.
-  - Pengaktifan audio dipicu interaksi user pertama untuk kompatibilitas browser.
+## Key Projects Showcased
 
-## 🛠️ Teknologi yang Digunakan
+1. **Sistem Pakar Diagnosa Disleksia**
+   - PHP & MySQL based expert system
+   - Forward Chaining and Certainty Factor methods
+   - Live demo available
 
-- **HTML5** untuk struktur konten.
-- **CSS3** untuk styling dan layout (menggunakan Flexbox/Grid, variabel CSS, Google Fonts).
-- **JavaScript (ES6+)** untuk interaksi, logika game, dan penyimpanan sederhana (mis. `localStorage` pada beberapa game).
+2. **Website E-Commerce Toko Mebel**
+   - Full-featured e-commerce platform
+   - Product catalog, shopping cart, order management
+   - PHP & MySQL implementation
 
-## 🚀 Menjalankan Secara Lokal
+3. **Klasifikasi Tingkat Kematangan Pisang**
+   - Machine learning project using Python
+   - KNN algorithm for banana ripeness classification
+   - Computer vision application
 
-1. Buka folder proyek ini.
-2. Jalankan langsung `index.html` di browser, atau gunakan ekstensi "Live Server" pada VS Code.
+## Design Features
 
-## 📁 Struktur Folder Singkat
+- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile
+- **Accessibility**: Semantic HTML and proper ARIA labels
+- **Performance**: Optimized assets and efficient code structure
+- **Cross-browser Compatibility**: Tested across modern browsers
 
-- `index.html` — Halaman utama RevoFun.
-- `games/` — Halaman HTML masing‑masing game.
-- `js/` — Skrip utama dan skrip per game (termasuk integrasi audio dan logika game).
-- `audio/` — Berkas musik latar dan efek suara.
-- `style.css`, `audio-controls.css` — Gaya tampilan dan kontrol audio.
+## Getting Started
 
-## 🎧 Catatan Audio
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/revou-fsse-jun25/milestone-1-whtrianto.git
+   ```
 
-- Audio dikendalikan melalui skrip di `js/` (mis. `audio-manager-*.js`, `audio-integration-helper.js`).
-- Suara akan aktif setelah interaksi pertama pengguna (klik/hover) agar kompatibel dengan kebijakan auto‑play browser.
+2. **Open the project**:
+   - Navigate to the project directory
+   - Open `index.html` in your web browser
+   - Or use a local server for development
 
-## 🌐 Deploy
+3. **Customize**:
+   - Update personal information in `index.html`
+   - Modify styles in `assets/css/style.css`
+   - Add new projects to the portfolio section
 
-- Dapat di-deploy ke layanan statis seperti GitHub Pages, Netlify, atau Vercel.
-- Pastikan seluruh aset (audio, CSS, JS) memiliki path relatif yang benar.
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+This is a personal portfolio project, but suggestions and feedback are welcome!
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+- **Email**: wahyutri1771@gmail.com
+- **Phone**: +62 896-6607-7720
+- **Location**: Banjarnegara, Indonesia
+- **Education**: Universitas Muhammadiyah Purwokerto
+
